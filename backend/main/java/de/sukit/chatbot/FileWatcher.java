@@ -8,6 +8,12 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 
+/**
+ * The FileWatcher class creates a FileWatcher which solely monitors the <code>data</code>-directory in which our
+ * <code>dictionary.json</code>-file resides in. The purpose of said filewatcher is to reload the dictionary should any
+ * changes to said dictionary be detected, thus allowing additions or removals to/from the dictionary at runtime.
+ * @author Griefed
+ */
 public class FileWatcher {
 
     private static final Logger LOG = LogManager.getLogger(FileWatcher.class);
@@ -19,7 +25,7 @@ public class FileWatcher {
 
     /**
      * Constructor for the FileWatcher class. Used for dependency injection, should we ever need it.
-     * @author DHengstmann
+     * @author Griefed
      */
     public FileWatcher(DictionaryHandler injectedDictionaryHandler) {
         if (injectedDictionaryHandler == null) {
@@ -32,7 +38,7 @@ public class FileWatcher {
 
     /**
      * Getter for the dictionary-file.
-     * @author DHengstmann
+     * @author Griefed
      * @return File. Returns the dictionary-file.
      */
     public File getFILE_DICTIONARY() {
@@ -41,7 +47,7 @@ public class FileWatcher {
 
     /**
      * Getter for the directory which the FileWatcher is supposed to monitor.
-     * @author DHengstmann
+     * @author Griefed
      * @return File. Returns the directory which the FileWatcher is supposed to watch.
      */
     public File getDIRECTORY_WATCH() {
@@ -50,7 +56,7 @@ public class FileWatcher {
 
     /**
      * Setup our FileAlterationObserver.
-     * @author DHengstmann
+     * @author Griefed
      */
     public void listener() {
 
