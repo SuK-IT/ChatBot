@@ -26,8 +26,6 @@ RUN \
   echo "**** Creating our folder(s) ****" && \
   mkdir -p \
     /app/chatbot/data && \
-  mkdir \
-    /config && \
   echo "**** Cleanup ****" && \
     rm -rf \
       /root/.cache \
