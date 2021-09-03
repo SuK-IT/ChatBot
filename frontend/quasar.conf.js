@@ -59,6 +59,7 @@ module.exports = configure(function (ctx) {
       showProgress: true,
       gzip: false,
       analyze: false,
+      publicPath: '',
 
       // transpile: false,
 
