@@ -124,6 +124,11 @@ public class DictionaryHandler {
         this.dictionary = dic;
     }
 
+    /**
+     * Getter for the dictionary used for keyword-recognition.
+     * @author Griefed
+     * @return HashMap String, String. Returns the dictionary used for keyword-recognition.
+     */
     public HashMap<String, String> getDictionary() {
         return dictionary;
     }
