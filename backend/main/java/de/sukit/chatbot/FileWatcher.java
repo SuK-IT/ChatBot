@@ -46,6 +46,7 @@ public class FileWatcher {
     /**
      * Constructor for the FileWatcher class. Used for dependency injection, should we ever need it.
      * @author Griefed
+     * @param injectedDictionaryHandler Instance of {@link DictionaryHandler}.
      */
     @Autowired
     public FileWatcher(DictionaryHandler injectedDictionaryHandler) {
