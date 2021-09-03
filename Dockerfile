@@ -11,7 +11,6 @@ RUN \
         /tmp/chatbot && \
   chmod +x /tmp/chatbot/gradlew* && \
   cd /tmp/chatbot && \
-  rm -Rf /tmp/chatbot/src/test && \
   ./gradlew about installQuasar cleanFrontend assembleFrontend copyDist build --info -x test && \
   ls -ahl ./build/libs/
 
