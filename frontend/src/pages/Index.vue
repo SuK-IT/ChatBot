@@ -94,6 +94,8 @@
           label="Enter Chat Message!"
         />
 
+        <!-- /api/talk/getResponse?input=<user_input> -->
+
         <q-toggle v-model="accept" label="I accept the license and terms" />
 
         <div>
