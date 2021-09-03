@@ -5,7 +5,6 @@ plugins {
     id 'java'
     id 'idea'
 
-    id 'edu.sc.seis.launch4j' version '2.5.0'
     id "org.siouan.frontend-jdk8" version "5.3.0"
 
     id 'org.springframework.boot' version '2.5.2'
@@ -41,18 +40,6 @@ sourceSets {
             srcDirs = ['backend/test/resources']
         }
     }
-}
-
-// Launch4j builds our ServerPackCreator.exe.
-launch4j {
-    mainClassName = 'de.sukit.chatbot.Main'
-    jarTask = project.tasks.jar
-    fileDescription = "Chatbot in Java as backend and Quasar as frontend."
-    version = System.getenv("NEW_VERSION").toString()
-    textVersion = System.getenv("NEW_VERSION").toString()
-    windowTitle = "ChatBot"
-    libraryDir = 'libraries'
-    outputDir = 'libs'
 }
 
 configurations {
