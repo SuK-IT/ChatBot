@@ -1,0 +1,44 @@
+{
+  "keywords": [
+    {
+      "keyword": "wort0",
+      "response": "1 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort1",
+      "response": "2 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort2",
+      "response": "3 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort3",
+      "response": "4 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort4",
+      "response": "5 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort5",
+      "response": "6 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort6",
+      "response": "7 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort7",
+      "response": "8 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort8",
+      "response": "9 - Hallo Welt!"
+    },
+    {
+      "keyword": "wort9",
+      "response": "10 - Hallo Welt!"
+    }
+    ]
+}
