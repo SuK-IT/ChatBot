@@ -38,7 +38,7 @@ COPY --from=builder tmp/chatbot/build/libs/ChatBot.jar /app/chatbot/chatbot.jar
 
 COPY root/ /
 
-COPY backend/main/resources/de/sukit/resources/dictionary.json /defaults/dictionary.json
+COPY backend/main/resources/dictionary.json /defaults/dictionary.json
 
 VOLUME /config
 
