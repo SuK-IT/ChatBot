@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
 
+/**
+ * DictionaryHandler reads the <code>data/dictionary.json</code>-file into a String,String HashMap.
+ * @author Griefed
+ */
 public class DictionaryHandler {
 
     private static final Logger LOG = LogManager.getLogger(DictionaryHandler.class);
@@ -20,13 +24,18 @@ public class DictionaryHandler {
 
     private HashMap<String, String> dictionary;
 
+    /**
+     * Constructor for our Dictionary-class. This makes a call to {@link #setDictionary()}, thus ensuring we have a hashmap
+     * of our dictionary available immediately after class-instantiation.
+     * @author Griefed
+     */
     public DictionaryHandler() {
         setDictionary();
     }
 
     /**
      * Getter for the dictionary-file.
-     * @author DHengstmann
+     * @author Griefed
      * @return File. Returns the dictionary-file.
      */
     public File getFILE_DICTIONARY() {
@@ -35,7 +44,7 @@ public class DictionaryHandler {
 
     /**
      * Getter for the directory which the FileWatcher is supposed to monitor.
-     * @author DHengstmann
+     * @author Griefed
      * @return File. Returns the directory which the FileWatcher is supposed to watch.
      */
     public File getDIRECTORY_WATCH() {
@@ -44,7 +53,7 @@ public class DictionaryHandler {
 
     /**
      * Getter for the object-mapper used for working with JSON-data.
-     * @author DHengstmann
+     * @author Griefed
      * @return ObjectMapper. Returns the object-mapper used for working with JSON-data.
      */
     public ObjectMapper getObjectMapper() {
@@ -57,7 +66,7 @@ public class DictionaryHandler {
     /**
      * Helper method.<br>
      * Reads the passed manifest-file into a byte array and returns a JsonNode containing said byte array.
-     * @author DHengstmann
+     * @author Griefed
      * @param file The file to read into the byte array.
      * @return JsonNode. Returns the JsonNode of the passed manifest-file.
      * @throws IOException Throws an exception when the passed file could not be found/read/parsed etc.
@@ -67,6 +76,12 @@ public class DictionaryHandler {
         return getObjectMapper().readTree(jsonData);
     }
 
+    /**
+     * Sets the dictionary-hashmap for this class by reading the <code>data/dictionary.json</code>-file into a JsonNode.
+     * Iterates through each JsonNode and writes the values of <code>keyword</code> and <code>response</code> into a new
+     * key-value-pair in the dictionary-hashmap. Said hashmap is then available via {@link #getDictionary()}.
+     * @author Griefed
+     */
     public void setDictionary() {
 
         HashMap<String, String> dic = new HashMap<>();

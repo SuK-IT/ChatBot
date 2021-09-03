@@ -9,10 +9,19 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Main class used for setting up default files and ensuring our dictionary is loaded and monitored by a filewatcher.
+ * @author Griefed
+ */
 public class Main {
 
     private static final Logger LOG = LogManager.getLogger(ChatBotApplication.class);
 
+    /**
+     * Setup default-files. Load the default dictionary. Start filewatcher for dictionary. Start Spring Application.
+     * @author Griefed
+     * @param args String Array. Arguments with which the application was executed.
+     */
     public static void main(String[] args) {
         try {
             Files.createDirectories(Paths.get("./data"));
@@ -29,6 +38,12 @@ public class Main {
         ChatBotApplication.main(args);
     }
 
+    /**
+     * Copies the passed file from the resources inside the JAR-file to the passed directory.
+     * @author Griefed
+     * @param fileToCreate File. The file to create.
+     * @param destination File/Directory. The directory in which the passed file is to be copied to.
+     */
     private static void createFile(File fileToCreate, File destination) {
         if (!fileToCreate.exists()) {
             try {
