@@ -37,5 +37,6 @@ out/
 .vscode/
 
 ### Testing ###
-testruns
-logs
+/testruns
+/logs
+/data
