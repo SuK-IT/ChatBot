@@ -67,7 +67,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a name="I:C">
+<div class="contentContainer"><a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a name="I:C">
 <!--   -->
 </a>
 <h2 class="title">C</h2>
@@ -81,6 +81,10 @@
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/Main.html#createFile-java.io.File-java.io.File-">createFile(File, File)</a></span> - Static method in class de.sukit.chatbot.<a href="de/sukit/chatbot/Main.html" title="class in de.sukit.chatbot">Main</a></dt>
 <dd>
 <div class="block">Copies the passed file from the resources inside the JAR-file to the passed directory.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/FileWatcher.html#createListener--">createListener()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot">FileWatcher</a></dt>
+<dd>
+<div class="block">Setup our FileAlterationObserver.</div>
 </dd>
 </dl>
 <a name="I:D">
@@ -142,7 +146,9 @@
 <h2 class="title">G</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#getDictionary--">getDictionary()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Getter for the dictionary used for keyword-recognition.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#getDIRECTORY_WATCH--">getDIRECTORY_WATCH()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
 <dd>
 <div class="block">Getter for the directory which the FileWatcher is supposed to monitor.</div>
@@ -182,10 +188,6 @@
 </a>
 <h2 class="title">L</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="de/sukit/chatbot/FileWatcher.html#listener--">listener()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot">FileWatcher</a></dt>
-<dd>
-<div class="block">Setup our FileAlterationObserver.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#LOG">LOG</a></span> - Static variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/FileWatcher.html#LOG">LOG</a></span> - Static variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot">FileWatcher</a></dt>
@@ -256,7 +258,18 @@
 <div class="block">Sets the dictionary-hashmap for this class by reading the <code>data/dictionary.json</code>-file into a JsonNode.</div>
 </dd>
 </dl>
-<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;</div>
+<a name="I:U">
+<!--   -->
+</a>
+<h2 class="title">U</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/FileWatcher.html#updateDictionary--">updateDictionary()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot">FileWatcher</a></dt>
+<dd>
+<div class="block">Calls <a href="de/sukit/chatbot/DictionaryHandler.html#setDictionary--"><code>DictionaryHandler.setDictionary()</code></a> in order to re-read the dictionary.json and therefore update our
+ dictionary-hashmap.</div>
+</dd>
+</dl>
+<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:U">U</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->

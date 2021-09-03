@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -182,21 +182,28 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#createListener--">createListener</a></span>()</code>
+<div class="block">Setup our FileAlterationObserver.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#getDIRECTORY_WATCH--">getDIRECTORY_WATCH</a></span>()</code>
 <div class="block">Getter for the directory which the FileWatcher is supposed to monitor.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#getFILE_DICTIONARY--">getFILE_DICTIONARY</a></span>()</code>
 <div class="block">Getter for the dictionary-file.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#listener--">listener</a></span>()</code>
-<div class="block">Setup our FileAlterationObserver.</div>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#updateDictionary--">updateDictionary</a></span>()</code>
+<div class="block">Calls <a href="../../../de/sukit/chatbot/DictionaryHandler.html#setDictionary--"><code>DictionaryHandler.setDictionary()</code></a> in order to re-read the dictionary.json and therefore update our
+ dictionary-hashmap.</div>
 </td>
 </tr>
 </table>
@@ -316,14 +323,25 @@ public&nbsp;FileWatcher(<a href="../../../de/sukit/chatbot/DictionaryHandler.htm
 </dl>
 </li>
 </ul>
-<a name="listener--">
+<a name="createListener--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createListener</h4>
+<pre>public&nbsp;void&nbsp;createListener()</pre>
+<div class="block">Setup our FileAlterationObserver.</div>
+</li>
+</ul>
+<a name="updateDictionary--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>listener</h4>
-<pre>public&nbsp;void&nbsp;listener()</pre>
-<div class="block">Setup our FileAlterationObserver.</div>
+<h4>updateDictionary</h4>
+<pre>protected&nbsp;void&nbsp;updateDictionary()</pre>
+<div class="block">Calls <a href="../../../de/sukit/chatbot/DictionaryHandler.html#setDictionary--"><code>DictionaryHandler.setDictionary()</code></a> in order to re-read the dictionary.json and therefore update our
+ dictionary-hashmap.</div>
 </li>
 </ul>
 </li>
