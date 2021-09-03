@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="de.sukit.chatbot.Main" />
+    <module name="ChatBot.main" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testruns" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
