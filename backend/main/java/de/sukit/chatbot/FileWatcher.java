@@ -55,7 +55,7 @@ public class FileWatcher {
         } else {
             this.DICTIONARYHANDLER = injectedDictionaryHandler;
         }
-        listener();
+        createListener();
     }
 
     /**
@@ -80,7 +80,7 @@ public class FileWatcher {
      * Setup our FileAlterationObserver.
      * @author Griefed
      */
-    public void listener() {
+    public void createListener() {
 
         FileAlterationObserver fileAlterationObserver = new FileAlterationObserver(getDIRECTORY_WATCH());
 
@@ -112,12 +112,7 @@ public class FileWatcher {
             @Override
             public void onFileChange(File file) {
                 LOG.info("Dictionary changed!");
-                DICTIONARYHANDLER.setDictionary();
-
-                DICTIONARYHANDLER.getDictionary().entrySet().stream().
-                        forEach(
-                                input ->
-                                        LOG.info(input.getKey() + " : " + input.getValue()));
+                updateDictionary();
             }
 
             @Override
@@ -131,15 +126,29 @@ public class FileWatcher {
             }
         });
 
-        FileAlterationMonitor monitor = new FileAlterationMonitor(5000);
-        monitor.addObserver(fileAlterationObserver);
+        FileAlterationMonitor fileAlterationMonitor = new FileAlterationMonitor(5000);
+        fileAlterationMonitor.addObserver(fileAlterationObserver);
 
         try {
-            monitor.start();
+            fileAlterationMonitor.start();
         } catch (Exception ex) {
             LOG.error("Error starting the FileWatcher Monitor.", ex);
         }
 
+    }
+
+    /**
+     * Calls {@link DictionaryHandler#setDictionary()} in order to re-read the dictionary.json and therefore update our
+     * dictionary-hashmap.
+     * @author Griefed
+     */
+    protected void updateDictionary() {
+        DICTIONARYHANDLER.setDictionary();
+
+        DICTIONARYHANDLER.getDictionary().entrySet().stream().
+                forEach(
+                        input ->
+                                LOG.info(input.getKey() + " : " + input.getValue()));
     }
 
 }

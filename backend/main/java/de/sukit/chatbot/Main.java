@@ -49,9 +49,6 @@ public class Main {
         createFile(new File("log4j2.xml"), new File ("."));
         createFile(new File("dictionary.json"), new File ("./data"));
 
-        //DictionaryHandler DICTIONARYHANDLER = new DictionaryHandler();
-        //FileWatcher FILEWATCHER = new FileWatcher(DICTIONARYHANDLER);
-
         ChatBotApplication.main(args);
     }
 
@@ -61,8 +58,8 @@ public class Main {
      * @param fileToCreate File. The file to create.
      * @param destination File/Directory. The directory in which the passed file is to be copied to.
      */
-    private static void createFile(File fileToCreate, File destination) {
-        if (!fileToCreate.exists()) {
+    public static void createFile(File fileToCreate, File destination) {
+        if (!new File(String.format("%s/%s", destination, fileToCreate)).exists()) {
             try {
                 InputStream link = (ChatBotApplication.class.getResourceAsStream(String.format("/%s", fileToCreate.getName())));
                 if (link != null) {
