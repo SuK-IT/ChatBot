@@ -10,7 +10,7 @@ This is a small project for vocational school.
 
 ## Building
 
-To build the project and recieve an executable exe/jar, execute 
+To build the project and receive an executable exe/jar, execute 
 `./ gradlew about installQuasar cleanFrontend assembleFrontend copyDist build createExe --info`
 from the main directory of this repository. After the execution finishes, you'll have your `ChatBot.exe` and `ChatBot-x.x.x-SNAPSHOT.jar`
 available in the `build/libs`-directory.  
