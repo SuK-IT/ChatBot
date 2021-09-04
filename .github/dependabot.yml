@@ -12,7 +12,7 @@ updates:
     assignees:
       - "Griefed"
     labels:
-      - "depencencies"
+      - "dependencies"
       - "github-actions"
     target-branch: "master"
     
@@ -23,7 +23,7 @@ updates:
     assignees:
       - "Griefed"
     labels:
-      - "depencencies"
+      - "dependencies"
       - "gradle"
     target-branch: "master"
     
@@ -34,7 +34,7 @@ updates:
     assignees:
       - "Griefed"
     labels:
-      - "depencencies"
+      - "dependencies"
       - "npm"
     target-branch: "master"
     
@@ -45,6 +45,6 @@ updates:
     assignees:
       - "Griefed"
     labels:
-      - "depencencies"
+      - "dependencies"
       - "docker"
     target-branch: "master"
