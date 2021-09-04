@@ -1,0 +1,127 @@
+name: Create GitHub Pre-Release after GitLab tag mirror
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # GET LATEST CODE
+      - name: Checkout latest code
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      # EXTRACT TAG FROM PUSH
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+      - name: Use tag
+        run: echo ${{steps.tag.outputs.tag}}
+
+      # GENERATE CHANGELOG, RELEASE
+      - id: conventional_changelog
+        uses: ardalanamini/auto-changelog@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{steps.tag.outputs.tag}}
+          body: |
+            Automatic release of version: **${{steps.tag.outputs.tag}}**
+            **Changes in this pre-release:**
+            ${{ steps.conventional_changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+
+      # BUILD PROJECT AND PUBLISH TO PACKAGES
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '8'
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NEW_VERSION=$(echo "${{steps.tag.outputs.tag}}")
+          echo "New version: ${NEW_VERSION}"
+          echo "Github username: ${GITHUB_ACTOR}"
+          ./gradlew about
+          ./gradlew installQuasar cleanFrontend assembleFrontend copyDist build --info -x test
+      - name: List files
+        run: ls -ahl build/libs
+
+      - name: Rename files
+        run: |
+          echo "**** Renaming files to please the eye ****"
+          mv build/libs/ChatBot.jar build/libs/ChatBot-${{steps.tag.outputs.tag}}.jar
+          mv build/libs/ChatBot-javadoc.jar build/libs/ChatBot-${{steps.tag.outputs.tag}}-javadoc.jar
+          mv build/libs/ChatBot-sources.jar build/libs/ChatBot-${{steps.tag.outputs.tag}}-sources.jar
+
+      # UPLOAD ASSETS TO RELEASE
+      - name: Upload Release Asset Main Jar
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/libs/ChatBot-${{steps.tag.outputs.tag}}.jar
+          asset_name: ChatBot-${{steps.tag.outputs.tag}}.jar
+          asset_content_type: application/jar
+
+      - name: Upload Release Asset Sources Jar
+        id: upload-release-asset-sources
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/libs/ChatBot-${{steps.tag.outputs.tag}}-sources.jar
+          asset_name: ChatBot-${{steps.tag.outputs.tag}}-sources.jar
+          asset_content_type: application/jar
+
+      - name: Upload Release Asset Javadoc Jar
+        id: upload-release-asset-javadoc
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/libs/ChatBot-${{steps.tag.outputs.tag}}-javadoc.jar
+          asset_name: ChatBot-${{steps.tag.outputs.tag}}-javadoc.jar
+          asset_content_type: application/jar
+
+      # DOCKER RELATED
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.actor }}/chatbot:latest
+            ghcr.io/${{ github.actor }}/chatbot:${{steps.tag.outputs.tag}}

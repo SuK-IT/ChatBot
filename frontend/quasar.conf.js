@@ -59,6 +59,7 @@ module.exports = configure(function (ctx) {
       showProgress: true,
       gzip: false,
       analyze: false,
+      publicPath: '',
 
       // transpile: false,
 
@@ -87,6 +88,13 @@ module.exports = configure(function (ctx) {
     devServer: {
       https: false,
       port: 3000,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          ws: true,
+          changeOrigin: true
+        }
+      },
       open: true // opens browser window automatically
     },
 
