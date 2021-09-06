@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar style="background: radial-gradient(circle, #56638A 0%, #483A58 100%)">
         <q-btn
           flat
           dense
@@ -12,34 +12,36 @@
         />
 
         <q-toolbar-title>
-          <img src="https://puu.sh/I8CFX/c13595ef2e.png" loading="lazy" width="256" height="84"/>
+          <a href=""><img src="https://puu.sh/I8CFX/c13595ef2e.png" loading="eager" width="256" height="84"/></a>
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <div><q-item-label caption style="color: white;">Developed by Kevin Kowalski, David Hengstman, Hazel Baldenius &amp; Nico Funk</q-item-label></div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
+    <q-drawer dark
       v-model="leftDrawerOpen"
-      show-if-above
-      bordered
+      collapsed
+      bordered style="background: #483A58 100%"
     >
       <q-list>
         <q-item-label
           header
         >
-        <h3>
-          <center>
-            Menu
-          </center>
-        </h3>
+        <center>
+        <div id="menuHeader" class="q-pa-auto">
+            <h5 text-weight-bolder style="color: #7765E3; font-size: 28px;">MENU</h5>
+        </div>
+        </center>
+        <q-separator />
         </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
-        />
+          dark/>
+        <br/>
+        <q-separator />
       </q-list>
     </q-drawer>
 
@@ -54,15 +56,20 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Chat',
-    caption: 'Live Chat!',
-    icon: 'try',
-    link: 'https://quasar.dev'
+    title: 'Home',
+    icon: 'home',
+    link: ''
   },
   {
-    title: 'Github',
-    caption: 'github.com/SuK-IT',
+    title: 'Chat',
+    icon: 'try',
+    caption: 'Ask our ChatBot!',
+    link: '/chat',
+  },
+  {
+    title: 'GitHub',
     icon: 'code',
+    caption: 'https://github.com/SuK-IT',
     link: 'https://github.com/SuK-IT'
   },
 ];
@@ -73,8 +80,10 @@ import { Vue, Options } from 'vue-class-component'
   components: { EssentialLink }
 })
 export default class MainLayout extends Vue {
+
   leftDrawerOpen = false;
   essentialLinks = linksList;
+
   toggleLeftDrawer () {
     this.leftDrawerOpen = !this.leftDrawerOpen
   }
