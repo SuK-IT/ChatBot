@@ -37,7 +37,7 @@
         </q-item-label>
         <br/>
         <q-separator />
-
+        <br/>
         <q-item to="/" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="home"/>
