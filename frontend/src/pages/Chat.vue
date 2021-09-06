@@ -28,10 +28,17 @@
         <!-- CHAT BOX END -->
 
         <!-- INPUT REGION BEGIN -->
-        <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;"/>
-        <div>
+
+        <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;" bottom-slots :dense="dense">
+          <template v-slot:append>
+            <q-icon name="send" @click="onSubmit" class="cursor-pointer" />
+          </template>
+        </q-input>
+
+        <!-- <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;"/> -->
+        <!-- <div>
           <q-btn label="" round type="submit" color="primary" icon="send"/>
-        </div>
+        </div> -->
         <!-- INPUT REGION END -->
         
       </q-form>
@@ -105,6 +112,8 @@ export default {
 
         //const request = REQUEST_URL + INPUT;
         //const result = fetch(request);
+
+        $chatTextBox.value = null;
 
         $mh.AddMessage('[ENTRY] ' + INPUT, true);
         $mh.AddMessage('[RESPONSE] ' + INPUT, false);
