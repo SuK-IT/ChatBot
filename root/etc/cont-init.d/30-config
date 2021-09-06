@@ -10,6 +10,6 @@ fi
 ln -sf /config/dictionary.json /app/chatbot/data/dictionary.json
 
 chown -R \
-  abc:abc \
+  grfd:grfd \
     /app/chatbot \
     /config
