@@ -65,4 +65,29 @@ public class ResponseController {
         return RESPONSEHANDLER.getReponse(input);
     }
 
+    /**
+     * Alternative to {@link #getResponse(String)}. Returns the reponse as json.
+     * @author Griefed
+     * @param input User-input recieved from the frontend.
+     * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
+     */
+    @GetMapping("/get")
+    public String get(@RequestParam(value = "input", defaultValue = "hello") String input) {
+        LOG.info("Requested " + input);
+        return "{\"response\":\"" + RESPONSEHANDLER.getReponse(input) + "\"}";
+    }
+
+    /**
+     * Alternative to {@link #getResponse(String)}. Returns the input and response as json.
+     * @author Griefed
+     * @param input User-input recieved from the frontend.
+     * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend as well
+     * as the input.
+     */
+    @GetMapping("/talk")
+    public String talk(@RequestParam(value = "input", defaultValue = "hello") String input) {
+        LOG.info("Requested " + input);
+        return "{\"keyword\":\"" + input.replace("%20"," ") + "\",\"response\":\"" + RESPONSEHANDLER.getReponse(input) + "\"}";
+    }
+
 }
