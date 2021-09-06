@@ -35,6 +35,7 @@ public class ResponseHandler {
     private final DictionaryHandler DICTIONARYHANDLER;
 
     private String response;
+    private String match;
     private boolean responseFound;
 
     /**
@@ -56,13 +57,12 @@ public class ResponseHandler {
      * is returned.
      */
     public String getReponse(String input) {
-        input = input.replace("%20", " ").toLowerCase();
+        match = ".*" + input.replace("%20", " ").toLowerCase() + ".*";
 
         responseFound = false;
 
         for (String keyword : DICTIONARYHANDLER.getDictionary().keySet()) {
-
-            if (input.matches(keyword)) {
+            if (input.matches(match)) {
 
                 response = DICTIONARYHANDLER.getDictionary().get(keyword);
 
