@@ -108,6 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>@RestController
+ @CrossOrigin(origins={"http://localhost:8080","http://localhost:3000"})
  @RequestMapping(value="/api/talk")
 public class <span class="typeNameLabel">ResponseController</span>
 extends java.lang.Object</pre>
@@ -299,9 +300,10 @@ public&nbsp;ResponseController(<a href="../../../../../de/sukit/chatbot/rest/han
 <ul class="blockList">
 <li class="blockList">
 <h4>getResponse</h4>
-<pre>@GetMapping(value="/getResponse")
+<pre>@CrossOrigin(origins={"http://localhost:8080","http://localhost:3000"})
+ @GetMapping(value="/getResponse")
 public&nbsp;java.lang.String&nbsp;getResponse(@RequestParam(value="input",defaultValue="hello")
-                                                                      java.lang.String&nbsp;input)</pre>
+                                                                                                                                               java.lang.String&nbsp;input)</pre>
 <div class="block">Getter the response from the dictionary based on the user-input recieved from the frontend.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -317,9 +319,10 @@ public&nbsp;java.lang.String&nbsp;getResponse(@RequestParam(value="input",defaul
 <ul class="blockList">
 <li class="blockList">
 <h4>get</h4>
-<pre>@GetMapping(value="/get")
+<pre>@CrossOrigin(origins={"http://localhost:8080","http://localhost:3000"})
+ @GetMapping(value="/get")
 public&nbsp;java.lang.String&nbsp;get(@RequestParam(value="input",defaultValue="hello")
-                                                      java.lang.String&nbsp;input)</pre>
+                                                                                                                               java.lang.String&nbsp;input)</pre>
 <div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the reponse as json.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -335,9 +338,10 @@ public&nbsp;java.lang.String&nbsp;get(@RequestParam(value="input",defaultValue="
 <ul class="blockListLast">
 <li class="blockList">
 <h4>talk</h4>
-<pre>@GetMapping(value="/talk")
+<pre>@CrossOrigin(origins={"http://localhost:8080","http://localhost:3000"})
+ @GetMapping(value="/talk")
 public&nbsp;java.lang.String&nbsp;talk(@RequestParam(value="input",defaultValue="hello")
-                                                        java.lang.String&nbsp;input)</pre>
+                                                                                                                                 java.lang.String&nbsp;input)</pre>
 <div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the input and response as json.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
