@@ -58,7 +58,7 @@ public class Main {
      * @param fileToCreate File. The file to create.
      * @param destination File/Directory. The directory in which the passed file is to be copied to.
      */
-    public static void createFile(File fileToCreate, File destination) {
+    private static void createFile(File fileToCreate, File destination) {
         if (!new File(String.format("%s/%s", destination, fileToCreate)).exists()) {
             try {
                 InputStream link = (ChatBotApplication.class.getResourceAsStream(String.format("/%s", fileToCreate.getName())));

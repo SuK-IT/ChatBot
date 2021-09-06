@@ -34,10 +34,6 @@ public class ResponseHandler {
 
     private final DictionaryHandler DICTIONARYHANDLER;
 
-    private String response;
-    private String match;
-    private boolean responseFound;
-
     /**
      * Constructor for the ResponseHandler which makes an instance of {@link DictionaryHandler} available to us, so we
      * have access to our dictionary-hashmap.
@@ -57,26 +53,14 @@ public class ResponseHandler {
      * is returned.
      */
     public String getReponse(String input) {
-        match = ".*" + input.replace("%20", " ").toLowerCase() + ".*";
-
-        responseFound = false;
 
         for (String keyword : DICTIONARYHANDLER.getDictionary().keySet()) {
-            if (input.matches(match)) {
-
-                response = DICTIONARYHANDLER.getDictionary().get(keyword);
-
-                responseFound = true;
+            if (input.replace("%20", " ").toLowerCase().contains(keyword.toLowerCase())) {
 
                 LOG.info("Match found for " + keyword);
+                return DICTIONARYHANDLER.getDictionary().get(keyword);
             }
         }
-
-        if (responseFound) {
-            return response;
-        } else {
-            return "No match found!";
-        }
+        return "No match found!";
     }
-
 }
