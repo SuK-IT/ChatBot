@@ -94,9 +94,8 @@ export default class MainLayout extends Vue {
 
   randomHeaderImage(): string
   {
-    let num = Math.round(Math.random() * 2);
-    console.log(num);
-    return '~assets/suk' + String(num);
+    let num = Math.floor(Math.random() * 3);
+    return '/suk' + String(num) + '.png';
   }
 
   toggleLeftDrawer () {
