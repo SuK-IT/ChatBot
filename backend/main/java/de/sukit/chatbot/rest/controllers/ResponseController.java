@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.*;
  * @author Griefed
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000", "https://suk-it.griefed.de", "http://sukit:8080"})
 @RequestMapping("/api/talk")
 public class ResponseController {
 
@@ -60,7 +60,7 @@ public class ResponseController {
      * @param input User-input recieved from the frontend.
      * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
      */
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000", "https://suk-it.griefed.de", "http://sukit:8080"})
     @GetMapping("/getResponse") // /api/talk/getResponse?input=wort0
     public String getResponse(@RequestParam(value = "input", defaultValue = "hello") String input) {
         LOG.info("Requested " + input);
@@ -73,7 +73,7 @@ public class ResponseController {
      * @param input User-input recieved from the frontend.
      * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
      */
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000", "https://suk-it.griefed.de", "http://sukit:8080"})
     @GetMapping("/get") // /api/talk/get?input=wort0
     public String get(@RequestParam(value = "input", defaultValue = "hello") String input) {
         LOG.info("Requested " + input);
@@ -87,7 +87,7 @@ public class ResponseController {
      * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend as well
      * as the input.
      */
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000", "https://suk-it.griefed.de", "http://sukit:8080"})
     @GetMapping("/talk") // /api/talk/talk?input=wort0
     public String talk(@RequestParam(value = "input", defaultValue = "hello") String input) {
         LOG.info("Requested " + input);
