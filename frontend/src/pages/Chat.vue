@@ -28,17 +28,11 @@
         <!-- CHAT BOX END -->
 
         <!-- INPUT REGION BEGIN -->
-
         <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;" bottom-slots>
           <template v-slot:append>
             <q-icon name="send" @click="onSubmit" class="cursor-pointer"/>
           </template>
         </q-input>
-
-        <!-- <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;"/> -->
-        <!-- <div>
-          <q-btn label="" round type="submit" color="primary" icon="send"/>
-        </div> -->
         <!-- INPUT REGION END -->
         
       </q-form>
@@ -47,18 +41,13 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios'
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 
-const REQUEST_URL = 'https://griefed.de/api/talk/getResponse?input='
+const REQUEST_URL = 'http://localhost:8080/api/talk/getResponse?input='
 const MESSAGE_ME_HTML = '<div class="q-message q-message-sent"><div class="q-message-container row items-end no-wrap reverse"><div class=""><div class="q-message-name q-message-name--sent">$MESSAGESENDER</div><div class="q-message-text q-message-text--sent"><div class="q-message-text-content q-message-text-content--sent"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 const MESSAGE_RECEIVED_HTML = '<div class="q-message q-message-received"><div class="q-message-container row items-end no-wrap"><div class=""><div class="q-message-name q-message-name--received">$MESSAGESENDER</div><div class="q-message-text q-message-text--received"><div class="q-message-text-content q-message-text-content--received"><div>$MESSAGETEXT</div></div></div></div></div></div>';
-
-export interface CHATBOT_RESULT
-{
-  keyword: string;
-  response: string;
-}
 
 export class MessageHelper
 {
@@ -80,6 +69,40 @@ export class MessageHelper
     }
   }
 
+  public getResponse(text: string): string
+  {
+    let escaped = this.escapeInput(text, true);
+    let value = '';
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    void axios.get(REQUEST_URL + escaped).then(response => { console.log(response) })
+    .catch(function (error) {
+        alert(error);
+      });
+
+    return value;
+  } 
+
+  public escapeInput(text: string, includeSpace: boolean): string
+  {
+    if(text.length <= 0)
+      return '';
+
+    const expr0 = /\ /gi;
+    const expr1 = /\&>/gi;
+    const expr2 = /\</gi;
+    const expr3 = /\>/gi;
+    const expr4 = /\"/gi;
+    const expr5 = /\'/gi;
+
+    let escaped = (includeSpace ? text.replace(expr0, '%20') : text)
+                  .replace(expr1, '&amp;')
+                  .replace(expr2, '&lt;')
+                  .replace(expr3, '&gt;')
+                  .replace(expr4, '&quot;')
+                  .replace(expr5, '&#39;');
+
+    return escaped;
+  }
 }
 
 export default {
@@ -95,8 +118,9 @@ export default {
 
       onSubmit () 
       {
+        let ENTERED_TEXT = String($chatTextBox.value);
         
-        if($chatTextBox.value === null || String($chatTextBox.value) === '')
+        if($chatTextBox.value === null || ENTERED_TEXT === '')
         {
             $q.notify({
             color: 'red',
@@ -107,16 +131,13 @@ export default {
           return;
         }
 
-        const expr = /\ /gi;
-        const INPUT = String($chatTextBox.value).replace(expr, '%20');
-
-        //const request = REQUEST_URL + INPUT;
-        //const result = fetch(request);
+        let DISPLAYED_TEXT = $mh.escapeInput(ENTERED_TEXT, false);
+        let RESPONSE_TEXT = $mh.getResponse(ENTERED_TEXT);
 
         $chatTextBox.value = null;
 
-        $mh.AddMessage('[ENTRY] ' + INPUT, true);
-        $mh.AddMessage('[RESPONSE] ' + INPUT, false);
+        $mh.AddMessage('[ENTRY] ' + DISPLAYED_TEXT, true);
+        $mh.AddMessage('[RESPONSE] ' + RESPONSE_TEXT, false);
       },
     }
   }
