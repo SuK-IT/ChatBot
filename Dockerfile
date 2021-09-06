@@ -15,7 +15,6 @@ RUN \
   ls -ahl ./build/libs/
 
 FROM griefed/baseimage-ubuntu-jdk-8:1.0.5
-ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Chatbot in Java as backend and Quasar as frontend."

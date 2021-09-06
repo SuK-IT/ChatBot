@@ -14,7 +14,7 @@
             <q-card-section>
               <div class="text-h6">SUKBOT Chat</div>
               <q-separator spaced inset />
-              <q-scroll-area
+              <q-scroll-area ref="chatScrollArea"
               :thumb-style="thumbStyle"
               :bar-style="barStyle"
               style="height: 550px; max-width: 625px; width: 625px;">
@@ -44,14 +44,22 @@
 import axios from 'axios'
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
+import { QScrollArea } from 'quasar'
 
-const REQUEST_URL = 'http://localhost:8080/api/talk/getResponse?input='
+const REQUEST_URL = 'https://suk-it.griefed.de/api/talk/getResponse?input=';
 const MESSAGE_ME_HTML = '<div class="q-message q-message-sent"><div class="q-message-container row items-end no-wrap reverse"><div class=""><div class="q-message-name q-message-name--sent">$MESSAGESENDER</div><div class="q-message-text q-message-text--sent"><div class="q-message-text-content q-message-text-content--sent"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 const MESSAGE_RECEIVED_HTML = '<div class="q-message q-message-received"><div class="q-message-container row items-end no-wrap"><div class=""><div class="q-message-name q-message-name--received">$MESSAGESENDER</div><div class="q-message-text q-message-text--received"><div class="q-message-text-content q-message-text-content--received"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 
 export class MessageHelper
 {
-  public AddMessage = (text: string, isMe: boolean) =>
+  public scrollArea: QScrollArea | undefined;
+
+  constructor(scroll: QScrollArea | undefined)
+  {
+    this.scrollArea = scroll;
+  }
+
+  public AddMessage(text: string, isMe: boolean)
   {
     let chat = document.getElementById('chatBox');
     let message = (isMe ? MESSAGE_ME_HTML.replace('$MESSAGETEXT', text) : MESSAGE_RECEIVED_HTML.replace('$MESSAGETEXT', text));
@@ -66,6 +74,13 @@ export class MessageHelper
     {
       const history = chat.innerHTML;
       chat.innerHTML = history + message;
+      
+      if(this.scrollArea !== undefined)
+      {
+        var scrollSize = this.scrollArea.getScroll().verticalSize;
+        if(scrollSize !== undefined)
+          this.scrollArea.setScrollPosition('vertical', scrollSize, 500);
+      }
     }
   }
 
@@ -73,10 +88,8 @@ export class MessageHelper
   {
     let escaped = this.escapeInput(text, true);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    void axios.get(REQUEST_URL + escaped).then(response => { this.AddMessage(response.data, false); console.log(response); })
-    .catch(function (error) {
-        alert(error);
-      });
+    void axios.get(REQUEST_URL + escaped).then(response => { this.AddMessage(response.data, false); })
+    .catch(function (error) { alert(error); });
   } 
 
   public escapeInput(text: string, includeSpace: boolean): string
@@ -108,13 +121,15 @@ export default {
 
     const $q = useQuasar()
     const $chatTextBox = ref(null)
-    const $mh = new MessageHelper();
+    const chatScrollArea = ref<QScrollArea>()
 
     return {
       $chatTextBox,
+      chatScrollArea,
 
       onSubmit () 
       {
+        const $mh = new MessageHelper(chatScrollArea.value);
         let ENTERED_TEXT = String($chatTextBox.value);
         
         if($chatTextBox.value === null || ENTERED_TEXT === '')
@@ -129,11 +144,10 @@ export default {
         }
 
         let DISPLAYED_TEXT = $mh.escapeInput(ENTERED_TEXT, false);
-        $mh.getResponse(ENTERED_TEXT);
-
-        $chatTextBox.value = null;
 
         $mh.AddMessage(DISPLAYED_TEXT, true);
+        $mh.getResponse(ENTERED_TEXT);
+        $chatTextBox.value = null;
       },
     }
   }
