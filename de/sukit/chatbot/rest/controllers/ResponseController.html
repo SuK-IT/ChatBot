@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,8 +184,20 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#get-java.lang.String-">get</a></span>(java.lang.String&nbsp;input)</code>
+<div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-">getResponse</a></span>(java.lang.String&nbsp;input)</code>
 <div class="block">Getter the response from the dictionary based on the user-input recieved from the frontend.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#talk-java.lang.String-">talk</a></span>(java.lang.String&nbsp;input)</code>
+<div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -284,7 +296,7 @@ public&nbsp;ResponseController(<a href="../../../../../de/sukit/chatbot/rest/han
 <a name="getResponse-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getResponse</h4>
 <pre>@GetMapping(value="/getResponse")
@@ -296,6 +308,43 @@ public&nbsp;java.lang.String&nbsp;getResponse(@RequestParam(value="input",defaul
 <dd><code>input</code> - User-input recieved from the frontend.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>String. Returns the response from the dictionary based on the user-input recieved from the frontend.</dd>
+</dl>
+</li>
+</ul>
+<a name="get-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>get</h4>
+<pre>@GetMapping(value="/get")
+public&nbsp;java.lang.String&nbsp;get(@RequestParam(value="input",defaultValue="hello")
+                                                      java.lang.String&nbsp;input)</pre>
+<div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the reponse as json.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input</code> - User-input recieved from the frontend.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>String. Returns the response from the dictionary based on the user-input recieved from the frontend.</dd>
+</dl>
+</li>
+</ul>
+<a name="talk-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>talk</h4>
+<pre>@GetMapping(value="/talk")
+public&nbsp;java.lang.String&nbsp;talk(@RequestParam(value="input",defaultValue="hello")
+                                                        java.lang.String&nbsp;input)</pre>
+<div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the input and response as json.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input</code> - User-input recieved from the frontend.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>String. Returns the response from the dictionary based on the user-input recieved from the frontend as well
+ as the input.</dd>
 </dl>
 </li>
 </ul>
