@@ -2,7 +2,7 @@
   <q-item
     clickable
     tag="a"
-    target="_blank"
+    :target="shouldNewPage(link)"
     :href="link"
   >
     <q-item-section
@@ -32,5 +32,13 @@ class Props {
 }
 
 @Options({})
-export default class EssentialLink extends Vue.with(Props) {}
+export default class EssentialLink extends Vue.with(Props) 
+{
+  shouldNewPage(href: string)
+  {
+    if(href.charAt(0) === '/')
+      return '';
+    return '_blank';
+  }
+}
 </script>
