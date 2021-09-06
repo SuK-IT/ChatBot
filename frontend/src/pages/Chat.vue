@@ -46,7 +46,7 @@ import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 import { QScrollArea } from 'quasar'
 
-const REQUEST_URL = 'http://localhost:8080/api/talk/getResponse?input='
+const REQUEST_URL = 'https://suk-it.griefed.de/api/talk/getResponse?input=';
 const MESSAGE_ME_HTML = '<div class="q-message q-message-sent"><div class="q-message-container row items-end no-wrap reverse"><div class=""><div class="q-message-name q-message-name--sent">$MESSAGESENDER</div><div class="q-message-text q-message-text--sent"><div class="q-message-text-content q-message-text-content--sent"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 const MESSAGE_RECEIVED_HTML = '<div class="q-message q-message-received"><div class="q-message-container row items-end no-wrap"><div class=""><div class="q-message-name q-message-name--received">$MESSAGESENDER</div><div class="q-message-text q-message-text--received"><div class="q-message-text-content q-message-text-content--received"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 
@@ -88,10 +88,8 @@ export class MessageHelper
   {
     let escaped = this.escapeInput(text, true);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    void axios.get(REQUEST_URL + escaped).then(response => { this.AddMessage(response.data, false); console.log(response); })
-    .catch(function (error) {
-        alert(error);
-      });
+    void axios.get(REQUEST_URL + escaped).then(response => { this.AddMessage(response.data, false); })
+    .catch(function (error) { alert(error); });
   } 
 
   public escapeInput(text: string, includeSpace: boolean): string
@@ -118,8 +116,6 @@ export class MessageHelper
 }
 
 export default {
-
-
 
   setup () {
 
