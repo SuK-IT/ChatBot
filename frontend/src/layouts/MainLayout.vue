@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          <a href=""><img src="https://puu.sh/I8CFX/c13595ef2e.png" loading="eager" width="256" height="84"/></a>
+          <img src="https://puu.sh/I8CFX/c13595ef2e.png" loading="eager" width="256" height="84"/>
         </q-toolbar-title>
         <div><q-item-label caption style="color: white;">Developed by Kevin Kowalski, David Hengstman, Hazel Baldenius &amp; Nico Funk</q-item-label></div>
       </q-toolbar>

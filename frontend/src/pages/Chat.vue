@@ -69,17 +69,14 @@ export class MessageHelper
     }
   }
 
-  public getResponse(text: string): string
+  public getResponse(text: string)
   {
     let escaped = this.escapeInput(text, true);
-    let value = '';
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    void axios.get(REQUEST_URL + escaped).then(response => { console.log(response) })
+    void axios.get(REQUEST_URL + escaped).then(response => { this.AddMessage(response.data, false); console.log(response); })
     .catch(function (error) {
         alert(error);
       });
-
-    return value;
   } 
 
   public escapeInput(text: string, includeSpace: boolean): string
@@ -132,12 +129,11 @@ export default {
         }
 
         let DISPLAYED_TEXT = $mh.escapeInput(ENTERED_TEXT, false);
-        let RESPONSE_TEXT = $mh.getResponse(ENTERED_TEXT);
+        $mh.getResponse(ENTERED_TEXT);
 
         $chatTextBox.value = null;
 
-        $mh.AddMessage('[ENTRY] ' + DISPLAYED_TEXT, true);
-        $mh.AddMessage('[RESPONSE] ' + RESPONSE_TEXT, false);
+        $mh.AddMessage(DISPLAYED_TEXT, true);
       },
     }
   }
