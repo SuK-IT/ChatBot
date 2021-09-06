@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -f /config/dictionary.json ]; then
+  echo "**** Setting up ServerPackCreator configuration. ****"
+  cp -f \
+    /defaults/dictionary.json \
+    /config/dictionary.json
+fi
+
+ln -s /config/dictionary.json /app/chatbot/data/dictionary.json
+
+chown -R \
+  abc:abc \
+    /app/chatbot \
+    /config

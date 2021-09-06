@@ -33,6 +33,7 @@
         </div>
         </center>
         <q-separator />
+
         </q-item-label>
 
         <EssentialLink
@@ -70,6 +71,7 @@ const linksList = [
     title: 'GitHub',
     icon: 'code',
     caption: 'https://github.com/SuK-IT',
+
     link: 'https://github.com/SuK-IT'
   },
 ];

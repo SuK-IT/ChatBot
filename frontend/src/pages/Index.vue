@@ -62,6 +62,7 @@ export default {
     return {
       slide: ref(1),
       autoplay: ref(true)
+
     }
   }
 }

@@ -1,6 +1,23 @@
+# ChatBot
+
+## About
+
+ChatBot is a keyword-recognition-based Bot.
+The backend is written in Java, using Spring Boot to deploy a webservice. 
+The frontend is written in Quasar, a VueJS framework, using TypeScript instead of plain JS to ensure typesafety.
+
+This is a small project for vocational school.
+
+## Building
+
+To build the project and receive an executable exe/jar, execute 
+`./ gradlew about installQuasar cleanFrontend assembleFrontend copyDist build createExe --info`
+from the main directory of this repository. After the execution finishes, you'll have your `ChatBot.exe` and `ChatBot-x.x.x-SNAPSHOT.jar`
+available in the `build/libs`-directory.  
+
 # Getting Started
 
-### Reference Documentation
+## Reference Documentation
 
 For further reference, please consider the following sections:
 
@@ -11,7 +28,7 @@ For further reference, please consider the following sections:
 * [Spring Web](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-developing-web-applications)
 * [Validation](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-validation)
 
-### Guides
+## Guides
 
 The following guides illustrate how to use some features concretely:
 
@@ -19,7 +36,7 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
-### Additional Links
+## Additional Links
 
 These additional references should also help you:
 
