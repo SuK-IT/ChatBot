@@ -55,7 +55,7 @@ public class ResponseHandler {
     public String getReponse(String input) {
 
         for (String keyword : DICTIONARYHANDLER.getDictionary().keySet()) {
-            if (input.contains(keyword)) {
+            if (input.replace("%20", " ").toLowerCase().contains(keyword.toLowerCase())) {
 
                 LOG.info("Match found for " + keyword);
                 return DICTIONARYHANDLER.getDictionary().get(keyword);
