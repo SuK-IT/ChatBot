@@ -87,15 +87,26 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
       https: false,
+      headers: 
+      {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      },
       port: 3000,
       proxy: {
         '/api': {
-          target: 'http://localhost:8080',
-          ws: true,
-          changeOrigin: true
+           target: {
+              host: 'localhost',
+              protocol: 'http:',
+              port: 8080
+           },
+           pathRewrite: {
+              '^/api': ''
+           }
         }
       },
-      open: true // opens browser window automatically
+      open: true, // opens browser window automatically
     },
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework

@@ -56,7 +56,7 @@ public class ResponseHandler {
      * is returned.
      */
     public String getReponse(String input) {
-        input = input.replace("%20", " ");
+        input = input.replace("%20", " ").toLowerCase();
 
         responseFound = false;
 

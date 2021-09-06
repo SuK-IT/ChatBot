@@ -24,6 +24,7 @@
       bordered style="background: #483A58 100%"
     >
       <q-list>
+
         <q-item-label
           header
         >
@@ -33,8 +34,25 @@
         </div>
         </center>
         <q-separator />
-
         </q-item-label>
+
+        <q-item to="/" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="home"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Home</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item to="/chat" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="chat"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Chat</q-item-label>
+          </q-item-section>
+        </q-item>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -57,21 +75,9 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Home',
-    icon: 'home',
-    link: ''
-  },
-  {
-    title: 'Chat',
-    icon: 'try',
-    caption: 'Ask our ChatBot!',
-    link: '/chat',
-  },
-  {
     title: 'GitHub',
     icon: 'code',
     caption: 'https://github.com/SuK-IT',
-
     link: 'https://github.com/SuK-IT'
   },
 ];
