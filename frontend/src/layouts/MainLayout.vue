@@ -24,17 +24,19 @@
       bordered style="background: #483A58 100%"
     >
       <q-list>
-
+        <br/>
         <q-item-label
           header
         >
         <center>
-        <div id="menuHeader" class="q-pa-auto">
-            <h5 text-weight-bolder style="color: #7765E3; font-size: 28px;">MENU</h5>
-        </div>
+          <div id="menuHeader" class="q-pa-auto">
+            <div class="text-h6 menu_head text-white">MENU</div>
+          </div>
         </center>
-        <q-separator />
+
         </q-item-label>
+        <br/>
+        <q-separator />
 
         <q-item to="/" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
@@ -103,3 +105,9 @@ export default class MainLayout extends Vue {
   }
 }
 </script>
+<style>
+.menu_head {
+  font-size: 46px;
+  text-shadow: 0 0 5px #fff, 0 0 7px #56638A0C, 0 0 10px #56638A0C, 0 0 15px #56638A0C, 0 0 10px #56638ACC, 0 0 70px #56638A0C, 0 0 10px #56638A0C;
+}
+</style>
