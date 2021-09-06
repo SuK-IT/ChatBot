@@ -65,8 +65,17 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <q-page class="row no-wrap">
+        <div class="col">
+          <div class="full-height full-width">
+            <q-scroll-area class="full-height full-width page">
+              <router-view/>
+            </q-scroll-area>
+          </div>
+        </div>
+      </q-page>
     </q-page-container>
+
   </q-layout>
 </template>
 
@@ -103,3 +112,8 @@ export default class MainLayout extends Vue {
   }
 }
 </script>
+<style>
+.page {
+  background: radial-gradient(circle, #56638A 0%, #483A58 100%)
+}
+</style>
