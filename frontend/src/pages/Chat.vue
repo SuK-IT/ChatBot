@@ -29,9 +29,9 @@
 
         <!-- INPUT REGION BEGIN -->
 
-        <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;" bottom-slots :dense="dense">
+        <q-input color="yellow-1" filled dark v-model="$chatTextBox" label="Enter Chat Message!" style="max-width: 650px; width: 650px;" bottom-slots>
           <template v-slot:append>
-            <q-icon name="send" @click="onSubmit" class="cursor-pointer" />
+            <q-icon name="send" @click="onSubmit" class="cursor-pointer"/>
           </template>
         </q-input>
 
