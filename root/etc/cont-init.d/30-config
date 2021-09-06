@@ -7,7 +7,7 @@ if [ ! -f /config/dictionary.json ]; then
     /config/dictionary.json
 fi
 
-ln -s /config/dictionary.json /app/chatbot/data/dictionary.json
+ln -sf /config/dictionary.json /app/chatbot/data/dictionary.json
 
 chown -R \
   abc:abc \
