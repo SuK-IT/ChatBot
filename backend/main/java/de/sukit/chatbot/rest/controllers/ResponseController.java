@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
  * @author Griefed
  */
 @RestController
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
 @RequestMapping("/api/talk")
 public class ResponseController {
 
@@ -59,6 +60,7 @@ public class ResponseController {
      * @param input User-input recieved from the frontend.
      * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
      */
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
     @GetMapping("/getResponse") // /api/talk/getResponse?input=wort0
     public String getResponse(@RequestParam(value = "input", defaultValue = "hello") String input) {
         LOG.info("Requested " + input);
@@ -71,7 +73,8 @@ public class ResponseController {
      * @param input User-input recieved from the frontend.
      * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
      */
-    @GetMapping("/get")
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
+    @GetMapping("/get") // /api/talk/get?input=wort0
     public String get(@RequestParam(value = "input", defaultValue = "hello") String input) {
         LOG.info("Requested " + input);
         return "{\"response\":\"" + RESPONSEHANDLER.getReponse(input) + "\"}";
@@ -84,7 +87,8 @@ public class ResponseController {
      * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend as well
      * as the input.
      */
-    @GetMapping("/talk")
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:3000"})
+    @GetMapping("/talk") // /api/talk/talk?input=wort0
     public String talk(@RequestParam(value = "input", defaultValue = "hello") String input) {
         LOG.info("Requested " + input);
         return "{\"keyword\":\"" + input.replace("%20"," ") + "\",\"response\":\"" + RESPONSEHANDLER.getReponse(input) + "\"}";
