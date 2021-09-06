@@ -1,3 +1,4 @@
+//file:noinspection GroovyAssignabilityCheck
 import java.text.SimpleDateFormat
 import org.siouan.frontendgradleplugin.infrastructure.gradle.RunNpmYarn
 
@@ -21,12 +22,10 @@ repositories {
 }
 
 sourceSets {
-    //noinspection GroovyAssignabilityCheck
     main {
         java {
             srcDirs = ['backend/main/java']
         }
-        //noinspection GroovyAssignabilityCheck
         resources {
             srcDirs = ['backend/main/resources']
         }
@@ -35,7 +34,6 @@ sourceSets {
         java {
             srcDirs = ['backend/test/java']
         }
-        //noinspection GroovyAssignabilityCheck
         resources {
             srcDirs = ['backend/test/resources']
         }
@@ -59,8 +57,8 @@ dependencies {
     embed 'org.springframework.boot:spring-boot-starter-log4j2:2.5.4'
     embed 'org.apache.logging.log4j:log4j-web:2.14.1'
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.4'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
@@ -173,7 +171,6 @@ java {
 
 bootJar {
     // Customize MANIFEST to include relevant information.
-    //noinspection GroovyAssignabilityCheck
     manifest {
         attributes  "Start-Class"    : "de.sukit.chatbot.Main",
                 "Description"    : "Chatbot in Java as backend and Quasar as frontend.",
@@ -196,7 +193,6 @@ jar {
     }
 
     // Customize MANIFEST to include relevant information.
-    //noinspection GroovyAssignabilityCheck
     manifest {
         attributes(
                 "Main-Class"     : "de.sukit.chatbot.Main",
