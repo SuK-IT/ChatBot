@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          <img src="https://puu.sh/I8CFX/c13595ef2e.png" loading="eager" width="256" height="84"/>
+          <img :src="randomHeaderImage()" loading="eager" width="256" height="84"/>
         </q-toolbar-title>
         <div><q-item-label caption style="color: white;">Developed by Kevin Kowalski, David Hengstman, Hazel Baldenius &amp; Nico Funk</q-item-label></div>
       </q-toolbar>
@@ -91,6 +91,12 @@ export default class MainLayout extends Vue {
 
   leftDrawerOpen = false;
   essentialLinks = linksList;
+
+  randomHeaderImage(): string
+  {
+    let num = Math.floor(Math.random() * 3);
+    return '/suk' + String(num) + '.png';
+  }
 
   toggleLeftDrawer () {
     this.leftDrawerOpen = !this.leftDrawerOpen
