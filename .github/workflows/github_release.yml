@@ -15,7 +15,7 @@ jobs:
 
       # CREATE TAG
       - id: compute_tag
-        uses: craig-day/compute-tag@v10
+        uses: craig-day/compute-tag@v13
         with:
           github_token: ${{ github.token }}
           version_scheme: semantic
