@@ -1,12 +1,12 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="background text-white text-center q-pa-md flex flex-center">
     <div>
       <div style="font-size: 30vh">
         404
       </div>
 
       <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+        You shouldn't be here...
       </div>
 
       <q-btn
@@ -27,3 +27,7 @@ import { Vue } from 'vue-class-component'
 
 export default class Error404 extends Vue {}
 </script>
+
+<style>
+
+</style>

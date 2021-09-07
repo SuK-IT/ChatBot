@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+cd /app/chatbot
+
+exec \
+  s6-setuidgid grfd \
+    /usr/bin/java -jar \
+      chatbot.jar

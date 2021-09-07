@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Testing ###
+/testruns
+/logs
+/data
+/frontend/node/
