@@ -23,7 +23,7 @@
     "@babel/eslint-parser": "^7.15.4",
     "@quasar/app": "^3.0.0",
     "@types/node": "^16.7.10",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
