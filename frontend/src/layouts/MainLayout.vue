@@ -14,7 +14,7 @@
         <q-toolbar-title>
           <img :src="randomHeaderImage()" loading="eager" width="256" height="84"/>
         </q-toolbar-title>
-        <div><q-item-label caption style="color: white;">Developed by Kevin Kowalski, David Hengstman, Hazel Baldenius &amp; Nico Funk</q-item-label></div>
+        <div><q-item-label caption style="color: white;">Developed by Kevin Kowalski, David Hengstmann, Hazel Baldenius &amp; Nico Funk</q-item-label></div>
       </q-toolbar>
     </q-header>
 
