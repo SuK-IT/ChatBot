@@ -41,3 +41,4 @@ out/
 /logs
 /data
 /frontend/node/
+/backend/main/resources/static/*
