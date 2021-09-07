@@ -63,7 +63,7 @@ export class MessageHelper
   public AddMessage(text: string, isMe: boolean)
   {
     let chat = document.getElementById('chatBox');
-    let message = (isMe ? MESSAGE_ME_HTML.replace('$MESSAGETEXT', text) : MESSAGE_RECEIVED_HTML.replace('$MESSAGETEXT', text));
+    let message = (isMe ? MESSAGE_ME_HTML.replace('$MESSAGETEXT', (text.startsWith("http") ? '<a href="' + text + '">' + text + '</a>' : text)) : MESSAGE_RECEIVED_HTML.replace('$MESSAGETEXT', (text.startsWith("http") ? '<a href="' + text + '">' + text + '</a>' : text)));
 
     if(isMe)
       message = message.replace('$MESSAGESENDER', 'me');
