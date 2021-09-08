@@ -1,7 +1,9 @@
-name: Create GitHub Release after GitLab tag mirror
+name: Create GitHub Release after tag push
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - '*'
 
 jobs:
   release:
@@ -13,12 +15,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      # CREATE TAG
-      - id: compute_tag
-        uses: craig-day/compute-tag@v13
-        with:
-          github_token: ${{ github.token }}
-          version_scheme: continuous
+      # EXTRACT TAG FROM PUSH
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+      - name: Use tag
+        run: echo ${{steps.tag.outputs.tag}}
 
       # GENERATE CHANGELOG, RELEASE
       - id: conventional_changelog
@@ -32,9 +34,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ steps.compute_tag.outputs.next_tag }}
+          release_name: Release ${{ steps.tag.outputs.tag }}
           body: |
-            Automatic release of version: **${{ steps.compute_tag.outputs.next_tag }}**
+            Automatic release of version: **${{ steps.tag.outputs.tag }}**
             **Changes in this pre-release:**
             ${{ steps.conventional_changelog.outputs.changelog }}
           draft: false
@@ -53,7 +55,7 @@ jobs:
           GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          NEW_VERSION=$(echo "${{ steps.compute_tag.outputs.next_tag }}")
+          NEW_VERSION=$(echo "${{ steps.tag.outputs.tag }}")
           echo "New version: ${NEW_VERSION}"
           echo "Github username: ${GITHUB_ACTOR}"
           ./gradlew about
@@ -64,9 +66,9 @@ jobs:
       - name: Rename files
         run: |
           echo "**** Renaming files to please the eye ****"
-          mv build/libs/ChatBot.jar build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}.jar
-          mv build/libs/ChatBot-javadoc.jar build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}-javadoc.jar
-          mv build/libs/ChatBot-sources.jar build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}-sources.jar
+          mv build/libs/ChatBot.jar build/libs/ChatBot-${{ steps.tag.outputs.tag }}.jar
+          mv build/libs/ChatBot-javadoc.jar build/libs/ChatBot-${{ steps.tag.outputs.tag }}-javadoc.jar
+          mv build/libs/ChatBot-sources.jar build/libs/ChatBot-${{ steps.tag.outputs.tag }}-sources.jar
 
       # UPLOAD ASSETS TO RELEASE
       - name: Upload Release Asset Main Jar
@@ -76,8 +78,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}.jar
-          asset_name: ChatBot-${{ steps.compute_tag.outputs.next_tag }}.jar
+          asset_path: ./build/libs/ChatBot-${{ steps.tag.outputs.tag }}.jar
+          asset_name: ChatBot-${{ steps.tag.outputs.tag }}.jar
           asset_content_type: application/jar
 
       - name: Upload Release Asset Sources Jar
@@ -87,8 +89,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}-sources.jar
-          asset_name: ChatBot-${{ steps.compute_tag.outputs.next_tag }}-sources.jar
+          asset_path: ./build/libs/ChatBot-${{ steps.tag.outputs.tag }}-sources.jar
+          asset_name: ChatBot-${{ steps.tag.outputs.tag }}-sources.jar
           asset_content_type: application/jar
 
       - name: Upload Release Asset Javadoc Jar
@@ -98,8 +100,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}-javadoc.jar
-          asset_name: ChatBot-${{ steps.compute_tag.outputs.next_tag }}-javadoc.jar
+          asset_path: ./build/libs/ChatBot-${{ steps.tag.outputs.tag }}-javadoc.jar
+          asset_name: ChatBot-${{ steps.tag.outputs.tag }}-javadoc.jar
           asset_content_type: application/jar
 
       # DOCKER RELATED
@@ -122,4 +124,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/suk-it/chatbot:latest
-            ghcr.io/suk-it/chatbot:${{ steps.compute_tag.outputs.next_tag }}
+            ghcr.io/suk-it/chatbot:${{ steps.tag.outputs.tag }}
