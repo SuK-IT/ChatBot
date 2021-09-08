@@ -15,10 +15,10 @@ jobs:
 
       # CREATE TAG
       - id: compute_tag
-        uses: craig-day/compute-tag@v10
+        uses: craig-day/compute-tag@v13
         with:
           github_token: ${{ github.token }}
-          version_scheme: semantic
+          version_scheme: continuous
 
       # GENERATE CHANGELOG, RELEASE
       - id: conventional_changelog
@@ -75,7 +75,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.compute_tag.outputs.next_tag }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}.jar
           asset_name: ChatBot-${{ steps.compute_tag.outputs.next_tag }}.jar
           asset_content_type: application/jar
@@ -86,7 +86,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.compute_tag.outputs.next_tag }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}-sources.jar
           asset_name: ChatBot-${{ steps.compute_tag.outputs.next_tag }}-sources.jar
           asset_content_type: application/jar
@@ -97,7 +97,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.compute_tag.outputs.next_tag }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/libs/ChatBot-${{ steps.compute_tag.outputs.next_tag }}-javadoc.jar
           asset_name: ChatBot-${{ steps.compute_tag.outputs.next_tag }}-javadoc.jar
           asset_content_type: application/jar

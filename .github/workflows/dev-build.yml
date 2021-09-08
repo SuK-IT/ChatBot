@@ -3,15 +3,7 @@ name: Create Dev-Build
 on:
   push:
     branches:
-      - master
-      - main
       - develop
-      - tests
-  pull_request:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
 
 jobs:
   test:
@@ -33,9 +25,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Dockerfile.develop
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
           tags: |
             ghcr.io/suk-it/chatbot:develop
-            ghcr.io/suk-it/chatbot:develop-${{ env.GITHUB_RUN_NUMBER }}
+            ghcr.io/suk-it/chatbot:develop-${{ github.sha }}

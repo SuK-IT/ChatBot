@@ -67,7 +67,10 @@
     {
       "keyword": "app",
       "response": "Die App für die AzubiCard+ kann im Playstore/Apple Appstore gedownloaded werden."
+    },
+    {
+      "keyword": "kowalski, analyse",
+      "response": "https:\/\/i.imgur.com\/x29RmqD.jpeg"
     }
-
   ]
 }

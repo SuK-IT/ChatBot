@@ -45,7 +45,11 @@ import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 import { QScrollArea } from 'quasar'
 
+<<<<<<< HEAD
 const REQUEST_URL = 'https://suk-it.griefed.de/api/talk/getResponse?input=';
+=======
+const REQUEST_URL = '/api/talk/getResponse?input=';
+>>>>>>> 9803246b4508675bfb51a5d2960583925c28a14f
 const MESSAGE_ME_HTML = '<div class="q-message q-message-sent"><div class="q-message-container row items-end no-wrap reverse"><div class=""><div class="q-message-name q-message-name--sent">$MESSAGESENDER</div><div class="q-message-text q-message-text--sent"><div class="q-message-text-content q-message-text-content--sent"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 const MESSAGE_RECEIVED_HTML = '<div class="q-message q-message-received"><div class="q-message-container row items-end no-wrap"><div class=""><div class="q-message-name q-message-name--received">$MESSAGESENDER</div><div class="q-message-text q-message-text--received"><div class="q-message-text-content q-message-text-content--received"><div>$MESSAGETEXT</div></div></div></div></div></div>';
 
