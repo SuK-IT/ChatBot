@@ -54,6 +54,13 @@ public class ResponseController {
         this.FILEWATCHER = injectedFileWatcher;
     }
 
+    @CrossOrigin(origins = {"*"})
+    @GetMapping("")
+    public String getConcatenatedResponses(@RequestParam(value = "input", defaultValue = "hello") String input) {
+        LOG.info("Requested " + input);
+        return RESPONSEHANDLER.getConcatenatedResponses(input);
+    }
+
     /**
      * Getter the response from the dictionary based on the user-input recieved from the frontend.
      * @author Griefed

@@ -18,6 +18,7 @@
 package de.sukit.chatbot.rest.handlers;
 
 import de.sukit.chatbot.DictionaryHandler;
+import de.sukit.chatbot.DictionaryModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,8 @@ public class ResponseHandler {
     private static final Logger LOG = LogManager.getLogger(ResponseHandler.class);
 
     private final DictionaryHandler DICTIONARYHANDLER;
+
+    private String concatenatedResponses;
 
     /**
      * Constructor for the ResponseHandler which makes an instance of {@link DictionaryHandler} available to us, so we
@@ -62,5 +65,47 @@ public class ResponseHandler {
             }
         }
         return "No match found!";
+    }
+
+    /**
+     * Get all possible reponses from user input and concatenated them into a single String, in order of priority set in
+     * the dictionary.
+     * @author Griefed
+     * @param input String. The input recieved from the user-input in the frontend.
+     * @return String. Returns the response matching the input to the dictionary. If no match is found <code>No match found!</code>
+     * is returned.
+     */
+    public String getConcatenatedResponses(String input) {
+        concatenatedResponses = "";
+
+        for (DictionaryModel modelEntry : DICTIONARYHANDLER.getDictionaryList()) {
+            if (modelEntry.getPriority() == 1 && input.replace("%20", " ").toLowerCase().contains(modelEntry.getKeyword().toLowerCase())) {
+
+                LOG.info("Match found for " + modelEntry.getKeyword());
+                concatenatedResponses = concatenatedResponses + " " + modelEntry.getResponse();
+            }
+        }
+
+        for (DictionaryModel modelEntry : DICTIONARYHANDLER.getDictionaryList()) {
+            if (modelEntry.getPriority() == 2 && input.replace("%20", " ").toLowerCase().contains(modelEntry.getKeyword().toLowerCase())) {
+
+                LOG.info("Match found for " + modelEntry.getKeyword());
+                concatenatedResponses = concatenatedResponses + " " +  modelEntry.getResponse();
+            }
+        }
+
+        for (DictionaryModel modelEntry : DICTIONARYHANDLER.getDictionaryList()) {
+            if (modelEntry.getPriority() == 3 && input.replace("%20", " ").toLowerCase().contains(modelEntry.getKeyword().toLowerCase())) {
+
+                LOG.info("Match found for " + modelEntry.getKeyword());
+                concatenatedResponses = concatenatedResponses + " " +  modelEntry.getResponse();
+            }
+        }
+
+        if (!concatenatedResponses.equals("")) {
+            return concatenatedResponses;
+        } else {
+            return "No match found!";
+        }
     }
 }

@@ -28,7 +28,9 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * DictionaryHandler reads the <code>data/dictionary.json</code>-file into a String,String HashMap.
@@ -43,6 +45,7 @@ public class DictionaryHandler {
     private final File FILE_DICTIONARY = new File("./data/dictionary.json");
 
     private HashMap<String, String> dictionary;
+    private List<DictionaryModel> dictionaryModelList;
 
     /**
      * Constructor for our Dictionary-class. This makes a call to {@link #setDictionary()}, thus ensuring we have a hashmap
@@ -52,6 +55,7 @@ public class DictionaryHandler {
     @Autowired
     public DictionaryHandler() {
         setDictionary();
+        setDictionaryList();
     }
 
     /**
@@ -122,6 +126,50 @@ public class DictionaryHandler {
         }
 
         this.dictionary = dic;
+    }
+
+    /**
+     * Creates a list of {@link DictionaryModel} with priority, keyword and response for each object in the dictionary.
+     * @author Griefed
+     */
+    public void setDictionaryList() {
+
+        dictionaryModelList = new ArrayList<>();
+
+        try {
+
+            JsonNode dictionaryJson = getJson(getFILE_DICTIONARY());
+
+            JsonNode keywords = dictionaryJson.get("keywords");
+
+            for (JsonNode pair : keywords) {
+                if (pair.get("priority").asInt() == 1) {
+                    dictionaryModelList.add(new DictionaryModel(pair.get("priority").asInt(), pair.get("keyword").asText(), pair.get("response").asText()));
+                }
+            }
+            for (JsonNode pair : keywords) {
+                if (pair.get("priority").asInt() == 2) {
+                    dictionaryModelList.add(new DictionaryModel(pair.get("priority").asInt(), pair.get("keyword").asText(), pair.get("response").asText()));
+                }
+            }
+            for (JsonNode pair : keywords) {
+                if (pair.get("priority").asInt() == 3) {
+                    dictionaryModelList.add(new DictionaryModel(pair.get("priority").asInt(), pair.get("keyword").asText(), pair.get("response").asText()));
+                }
+            }
+
+        } catch (NullPointerException | IOException ex) {
+            LOG.error("Error reading json.", ex);
+        }
+    }
+
+    /**
+     * Getter for the {@link DictionaryModel} list.
+     * @author Griefed
+     * @return List DictionaryMode. Returns the list containing our dictionary.
+     */
+    public List<DictionaryModel> getDictionaryList() {
+        return dictionaryModelList;
     }
 
     /**
