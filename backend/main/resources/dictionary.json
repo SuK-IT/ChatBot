@@ -2,75 +2,93 @@
   "keywords": [
     {
       "keyword": "hallo",
-      "response": "Hallo, ich bin der Sprach-und Kommunkationsbot. Wie kann ich helfen?"
+      "response": "Hallo, ich bin der Sprach-und Kommunkationsbot. Wie kann ich helfen?",
+      "priority": 1
     },
     {
       "keyword": "hi",
-      "response": "Hallo, ich bin der Sprach-und Kommunkationsbot. Wie kann ich helfen?"
+      "response": "Hallo, ich bin der Sprach-und Kommunkationsbot. Wie kann ich helfen?",
+      "priority": 1
     },
     {
       "keyword": "azubicardplus",
-      "response": "Die AzubiCard+ ist ein NFC-Chip basierte Karte, die jeder Azubi erhält"
+      "response": "Die AzubiCard+ ist ein NFC-Chip basierte Karte, die jeder Azubi erhält.",
+      "priority": 2
     },
     {
       "keyword": "azubicard+",
-      "response": "Die AzubiCard+ ist ein NFC-Chip basierte Karte, die jeder Azubi erhält"
+      "response": "Die AzubiCard+ ist ein NFC-Chip basierte Karte, die jeder Azubi erhält.",
+      "priority": 2
     },
     {
       "keyword": "was kostet",
-      "response": "Die AzubiCard+ ist kostenfrei. Jeder Azubi erhält die Karte automatisch und kann dadurch die Vorteile nutzen"
+      "response": "Die AzubiCard+ ist kostenfrei. Jeder Azubi erhält die Karte automatisch und kann dadurch die Vorteile nutzen.",
+      "priority": 2
     },
     {
       "keyword": "preis",
-      "response": "Die AzubiCard+ ist kostenfrei. Jeder Azubi erhält die Karte automatisch und kann dadurch die Vorteile nutzen"
+      "response": "Die AzubiCard+ ist kostenfrei. Jeder Azubi erhält die Karte automatisch und kann dadurch die Vorteile nutzen.",
+      "priority": 2
     },
     {
       "keyword": "vorteil",
-      "response": "Die AzubiCard+ bietet unter anderem Rabatte, schnelle Anmeldung von Geräten im Schulnetzwerk, als Fahrticket für Busse und Bahnen, sowie weitere technische Vorteile"
+      "response": "Die AzubiCard+ bietet unter anderem Rabatte, schnelle Anmeldung von Geräten im Schulnetzwerk, als Fahrticket für Busse und Bahnen, sowie weitere technische Vorteile.",
+      "priority": 2
     },
     {
       "keyword": "schulische ausbildung",
-      "response": "Die AzubiCard+ kann auch bei schulischen Ausbildungen beantragt werden."
+      "response": "Die AzubiCard+ kann auch bei schulischen Ausbildungen beantragt werden.",
+      "priority": 2
     },
     {
       "keyword": "alleinerziehend",
-      "response": "Die AzubiCard+ bietet unter anderem Vergünstigungen für Kindertagesstätten"
+      "response": "Die AzubiCard+ bietet unter anderem Vergünstigungen für Kindertagesstätten.",
+      "priority": 2
     },
     {
       "keyword": "erfunden",
-      "response": "Die AzubiCard+ wurde von den Gründern der SUKIT GmbH entwickelt"
+      "response": "Die AzubiCard+ wurde von den Gründern der SUKIT GmbH entwickelt.",
+      "priority": 2
     },
     {
       "keyword": "handy",
-      "response": "Die AzubiCard+ kann per App auch auf dem Smartphone verwendet werden"
+      "response": "Die AzubiCard+ kann per App auch auf dem Smartphone verwendet werden.",
+      "priority": 2
     },
     {
       "keyword": "smartphone",
-      "response": "Die AzubiCard+ kann per App auch auf dem Smartphone verwendet werden"
+      "response": "Die AzubiCard+ kann per App auch auf dem Smartphone verwendet werden.",
+      "priority": 2
     },
     {
       "keyword": "iphone",
-      "response": "Die AzubiCard+ kann per App auch auf dem Smartphone verwendet werden"
+      "response": "Die AzubiCard+ kann per App auch auf dem Smartphone verwendet werden.",
+      "priority": 2
     },
     {
       "keyword": "erhalte",
-      "response": "Die AzubiCard+ wird von der jeweiligen Handelskammer automatisch per Post versendet. Sollten Sie eine schulische Ausbildung machen, können Sie die AzubiCard+ auf dieser Seite beantragen."
+      "response": "Die AzubiCard+ wird von der jeweiligen Handelskammer automatisch per Post versendet. Sollten Sie eine schulische Ausbildung machen, können Sie die AzubiCard+ auf dieser Seite beantragen.",
+      "priority": 2
     },
     {
       "keyword": "unternehmen",
-      "response": "Sind Sie ein Unternehmen und möchten Rabatte für Azubis anbieten, nutzen Sie bitte das Kontaktformular"
+      "response": "Sind Sie ein Unternehmen und möchten Rabatte für Azubis anbieten, nutzen Sie bitte das Kontaktformular.",
+      "priority": 2
     },
     {
       "keyword": "welche rabatte",
-      "response": "Die Rabatte der AzubiCard+ lassen sich dynamisch in der App aufrufen oder direkt auf unserer Homepage."
+      "response": "Die Rabatte der AzubiCard+ lassen sich dynamisch in der App aufrufen oder direkt auf unserer Homepage.",
+      "priority": 2
     },
     {
       "keyword": "app",
-      "response": "Die App für die AzubiCard+ kann im Playstore/Apple Appstore gedownloaded werden."
+      "response": "Die App für die AzubiCard+ kann im Playstore/Apple Appstore gedownloaded werden.",
+      "priority": 2
     },
     {
       "keyword": "kowalski, analyse",
-      "response": "https:\/\/i.imgur.com\/x29RmqD.jpeg"
+      "response": "https:\/\/i.imgur.com\/x29RmqD.jpeg",
+      "priority": 3
     }
   ]
 }

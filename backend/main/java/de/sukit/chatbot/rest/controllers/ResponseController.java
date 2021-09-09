@@ -26,7 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * RestController for responses from the dictionary based on the user-input recieved from the frontend.
+ * RestController for responses from the dictionary based on the user-input received from the frontend.
  * @author Griefed
  */
 @RestController
@@ -54,11 +54,18 @@ public class ResponseController {
         this.FILEWATCHER = injectedFileWatcher;
     }
 
+    @CrossOrigin(origins = {"*"})
+    @GetMapping("")
+    public String getConcatenatedResponses(@RequestParam(value = "input", defaultValue = "hello") String input) {
+        LOG.info("Requested " + input);
+        return RESPONSEHANDLER.getConcatenatedResponses(input);
+    }
+
     /**
-     * Getter the response from the dictionary based on the user-input recieved from the frontend.
+     * Getter the response from the dictionary based on the user-input received from the frontend.
      * @author Griefed
-     * @param input User-input recieved from the frontend.
-     * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
+     * @param input User-input received from the frontend.
+     * @return String. Returns the response from the dictionary based on the user-input received from the frontend.
      */
     @CrossOrigin(origins = {"*"})
     @GetMapping("/getResponse") // /api/talk/getResponse?input=wort0
@@ -68,10 +75,10 @@ public class ResponseController {
     }
 
     /**
-     * Alternative to {@link #getResponse(String)}. Returns the reponse as json.
+     * Alternative to {@link #getResponse(String)}. Returns the response as json.
      * @author Griefed
-     * @param input User-input recieved from the frontend.
-     * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend.
+     * @param input User-input received from the frontend.
+     * @return String. Returns the response from the dictionary based on the user-input received from the frontend.
      */
     @CrossOrigin(origins = {"*"})
     @GetMapping("/get") // /api/talk/get?input=wort0
@@ -83,8 +90,8 @@ public class ResponseController {
     /**
      * Alternative to {@link #getResponse(String)}. Returns the input and response as json.
      * @author Griefed
-     * @param input User-input recieved from the frontend.
-     * @return String. Returns the response from the dictionary based on the user-input recieved from the frontend as well
+     * @param input User-input received from the frontend.
+     * @return String. Returns the response from the dictionary based on the user-input received from the frontend as well
      * as the input.
      */
     @CrossOrigin(origins = {"*"})
