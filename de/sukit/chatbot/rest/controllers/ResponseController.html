@@ -191,7 +191,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getConcatenatedResponses-java.lang.String-">getConcatenatedResponses</a></span>(java.lang.String&nbsp;input)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getConcatenatedResponses-java.lang.String-">getConcatenatedResponses</a></span>(java.lang.String&nbsp;input)</code>
+<div class="block">Get all possible responses for a given input as a concatenated string.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -308,6 +310,13 @@ public&nbsp;ResponseController(<a href="../../../../../de/sukit/chatbot/rest/han
  @GetMapping(value="")
 public&nbsp;java.lang.String&nbsp;getConcatenatedResponses(@RequestParam(value="input",defaultValue="hello")
                                                                                                   java.lang.String&nbsp;input)</pre>
+<div class="block">Get all possible responses for a given input as a concatenated string.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input</code> - User-input received from the frontend.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>String. Returns the concatenated response from the dictionary based on the user-input received from the frontend.</dd>
+</dl>
 </li>
 </ul>
 <a name="getResponse-java.lang.String-">
