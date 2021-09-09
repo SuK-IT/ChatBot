@@ -46,6 +46,25 @@ public class DictionaryHandler {
 
     private HashMap<String, String> dictionary;
     private List<DictionaryModel> dictionaryModelList;
+    private String nomatch;
+
+    /**
+     * Getter for the string which gets returned if no match is found for a given user-input.
+     * @author Griefed
+     * @return String. Returns the string which gets returned if no match is found for a given user-input.
+     */
+    public String getNomatch() {
+        return nomatch;
+    }
+
+    /**
+     * Setter for the string which gets returned if no match is found for a given user-input.
+     * @author Griefed
+     * @param nomatch String. The string which gets returned if no match is found for a given user-input.
+     */
+    public void setNomatch(String nomatch) {
+        this.nomatch = nomatch;
+    }
 
     /**
      * Constructor for our Dictionary-class. This makes a call to {@link #setDictionary()}, thus ensuring we have a hashmap
@@ -115,6 +134,8 @@ public class DictionaryHandler {
 
             JsonNode dictionaryJson = getJson(getFILE_DICTIONARY());
 
+            this.nomatch = dictionaryJson.get("nomatch").asText();
+
             JsonNode keywords = dictionaryJson.get("keywords");
 
             for (JsonNode pair : keywords) {
@@ -139,6 +160,8 @@ public class DictionaryHandler {
         try {
 
             JsonNode dictionaryJson = getJson(getFILE_DICTIONARY());
+
+            this.nomatch = dictionaryJson.get("nomatch").asText();
 
             JsonNode keywords = dictionaryJson.get("keywords");
 
