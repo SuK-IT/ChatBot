@@ -65,7 +65,7 @@ export class MessageHelper
     let chat = document.getElementById('chatBox');
     let split: string[] = text.split(' ');
 
-    if(split !== null || split !== undefined)
+    if(split !== null && split !== undefined)
     {
       for(let i = 0; i < split.length; i++)
       {
