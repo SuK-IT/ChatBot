@@ -64,7 +64,7 @@ public class ResponseHandler {
                 return DICTIONARYHANDLER.getDictionary().get(keyword);
             }
         }
-        return "No match found!";
+        return DICTIONARYHANDLER.getNomatch();
     }
 
     /**
@@ -105,7 +105,7 @@ public class ResponseHandler {
         if (!concatenatedResponses.equals("")) {
             return concatenatedResponses;
         } else {
-            return "No match found!";
+            return DICTIONARYHANDLER.getNomatch();
         }
     }
 }

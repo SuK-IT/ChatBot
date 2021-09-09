@@ -54,6 +54,12 @@ public class ResponseController {
         this.FILEWATCHER = injectedFileWatcher;
     }
 
+    /**
+     * Get all possible responses for a given input as a concatenated string.
+     * @author Griefed
+     * @param input User-input received from the frontend.
+     * @return String. Returns the concatenated response from the dictionary based on the user-input received from the frontend.
+     */
     @CrossOrigin(origins = {"*"})
     @GetMapping("")
     public String getConcatenatedResponses(@RequestParam(value = "input", defaultValue = "hello") String input) {
