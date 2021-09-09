@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
  @RequestMapping(value="/api/talk")
 public class <span class="typeNameLabel">ResponseController</span>
 extends java.lang.Object</pre>
-<div class="block">RestController for responses from the dictionary based on the user-input recieved from the frontend.</div>
+<div class="block">RestController for responses from the dictionary based on the user-input received from the frontend.</div>
 </li>
 </ul>
 </div>
@@ -191,11 +191,15 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-">getResponse</a></span>(java.lang.String&nbsp;input)</code>
-<div class="block">Getter the response from the dictionary based on the user-input recieved from the frontend.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getConcatenatedResponses-java.lang.String-">getConcatenatedResponses</a></span>(java.lang.String&nbsp;input)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-">getResponse</a></span>(java.lang.String&nbsp;input)</code>
+<div class="block">Getter the response from the dictionary based on the user-input received from the frontend.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#talk-java.lang.String-">talk</a></span>(java.lang.String&nbsp;input)</code>
 <div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>.</div>
@@ -294,6 +298,18 @@ public&nbsp;ResponseController(<a href="../../../../../de/sukit/chatbot/rest/han
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getConcatenatedResponses-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getConcatenatedResponses</h4>
+<pre>@CrossOrigin(origins="*")
+ @GetMapping(value="")
+public&nbsp;java.lang.String&nbsp;getConcatenatedResponses(@RequestParam(value="input",defaultValue="hello")
+                                                                                                  java.lang.String&nbsp;input)</pre>
+</li>
+</ul>
 <a name="getResponse-java.lang.String-">
 <!--   -->
 </a>
@@ -304,12 +320,12 @@ public&nbsp;ResponseController(<a href="../../../../../de/sukit/chatbot/rest/han
  @GetMapping(value="/getResponse")
 public&nbsp;java.lang.String&nbsp;getResponse(@RequestParam(value="input",defaultValue="hello")
                                                                                                  java.lang.String&nbsp;input)</pre>
-<div class="block">Getter the response from the dictionary based on the user-input recieved from the frontend.</div>
+<div class="block">Getter the response from the dictionary based on the user-input received from the frontend.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>input</code> - User-input recieved from the frontend.</dd>
+<dd><code>input</code> - User-input received from the frontend.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>String. Returns the response from the dictionary based on the user-input recieved from the frontend.</dd>
+<dd>String. Returns the response from the dictionary based on the user-input received from the frontend.</dd>
 </dl>
 </li>
 </ul>
@@ -323,12 +339,12 @@ public&nbsp;java.lang.String&nbsp;getResponse(@RequestParam(value="input",defaul
  @GetMapping(value="/get")
 public&nbsp;java.lang.String&nbsp;get(@RequestParam(value="input",defaultValue="hello")
                                                                                  java.lang.String&nbsp;input)</pre>
-<div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the reponse as json.</div>
+<div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the response as json.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>input</code> - User-input recieved from the frontend.</dd>
+<dd><code>input</code> - User-input received from the frontend.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>String. Returns the response from the dictionary based on the user-input recieved from the frontend.</dd>
+<dd>String. Returns the response from the dictionary based on the user-input received from the frontend.</dd>
 </dl>
 </li>
 </ul>
@@ -345,9 +361,9 @@ public&nbsp;java.lang.String&nbsp;talk(@RequestParam(value="input",defaultValue=
 <div class="block">Alternative to <a href="../../../../../de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>. Returns the input and response as json.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>input</code> - User-input recieved from the frontend.</dd>
+<dd><code>input</code> - User-input received from the frontend.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>String. Returns the response from the dictionary based on the user-input recieved from the frontend as well
+<dd>String. Returns the response from the dictionary based on the user-input received from the frontend as well
  as the input.</dd>
 </dl>
 </li>

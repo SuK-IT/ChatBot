@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../de/sukit/chatbot/ChatBotApplication.html" title="class in de.sukit.chatbot"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?de/sukit/chatbot/DictionaryHandler.html" target="_top">Frames</a></li>
@@ -134,14 +134,18 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#dictionary">dictionary</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>private java.io.File</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#DIRECTORY_WATCH">DIRECTORY_WATCH</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>private java.util.List&lt;<a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#dictionaryModelList">dictionaryModelList</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>private java.io.File</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#FILE_DICTIONARY">FILE_DICTIONARY</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#DIRECTORY_WATCH">DIRECTORY_WATCH</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>private java.io.File</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#FILE_DICTIONARY">FILE_DICTIONARY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>private static org.apache.logging.log4j.Logger</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#LOG">LOG</a></span></code>&nbsp;</td>
 </tr>
@@ -186,34 +190,46 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#getDictionaryList--">getDictionaryList</a></span>()</code>
+<div class="block">Getter for the <a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><code>DictionaryModel</code></a> list.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#getDIRECTORY_WATCH--">getDIRECTORY_WATCH</a></span>()</code>
 <div class="block">Getter for the directory which the FileWatcher is supposed to monitor.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#getFILE_DICTIONARY--">getFILE_DICTIONARY</a></span>()</code>
 <div class="block">Getter for the dictionary-file.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>private com.fasterxml.jackson.databind.JsonNode</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#getJson-java.io.File-">getJson</a></span>(java.io.File&nbsp;file)</code>
 <div class="block">Helper method.<br>
  Reads the passed manifest-file into a byte array and returns a JsonNode containing said byte array.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>com.fasterxml.jackson.databind.ObjectMapper</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#getObjectMapper--">getObjectMapper</a></span>()</code>
 <div class="block">Getter for the object-mapper used for working with JSON-data.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#setDictionary--">setDictionary</a></span>()</code>
 <div class="block">Sets the dictionary-hashmap for this class by reading the <code>data/dictionary.json</code>-file into a JsonNode.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/DictionaryHandler.html#setDictionaryList--">setDictionaryList</a></span>()</code>
+<div class="block">Creates a list of <a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><code>DictionaryModel</code></a> with priority, keyword and response for each object in the dictionary.</div>
 </td>
 </tr>
 </table>
@@ -268,10 +284,19 @@ extends java.lang.Object</pre>
 <a name="dictionary">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>dictionary</h4>
 <pre>private&nbsp;java.util.HashMap&lt;java.lang.String,java.lang.String&gt; dictionary</pre>
+</li>
+</ul>
+<a name="dictionaryModelList">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>dictionaryModelList</h4>
+<pre>private&nbsp;java.util.List&lt;<a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a>&gt; dictionaryModelList</pre>
 </li>
 </ul>
 </li>
@@ -376,6 +401,30 @@ public&nbsp;DictionaryHandler()</pre>
  key-value-pair in the dictionary-hashmap. Said hashmap is then available via <a href="../../../de/sukit/chatbot/DictionaryHandler.html#getDictionary--"><code>getDictionary()</code></a>.</div>
 </li>
 </ul>
+<a name="setDictionaryList--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDictionaryList</h4>
+<pre>public&nbsp;void&nbsp;setDictionaryList()</pre>
+<div class="block">Creates a list of <a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><code>DictionaryModel</code></a> with priority, keyword and response for each object in the dictionary.</div>
+</li>
+</ul>
+<a name="getDictionaryList--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDictionaryList</h4>
+<pre>public&nbsp;java.util.List&lt;<a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a>&gt;&nbsp;getDictionaryList()</pre>
+<div class="block">Getter for the <a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><code>DictionaryModel</code></a> list.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>List DictionaryMode. Returns the list containing our dictionary.</dd>
+</dl>
+</li>
+</ul>
 <a name="getDictionary--">
 <!--   -->
 </a>
@@ -418,7 +467,7 @@ public&nbsp;DictionaryHandler()</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../de/sukit/chatbot/ChatBotApplication.html" title="class in de.sukit.chatbot"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?de/sukit/chatbot/DictionaryHandler.html" target="_top">Frames</a></li>

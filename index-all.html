@@ -67,7 +67,7 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a name="I:C">
+<div class="contentContainer"><a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a name="I:C">
 <!--   -->
 </a>
 <h2 class="title">C</h2>
@@ -77,6 +77,8 @@
 <div class="block">Spring Boot class.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/ChatBotApplication.html#ChatBotApplication--">ChatBotApplication()</a></span> - Constructor for class de.sukit.chatbot.<a href="de/sukit/chatbot/ChatBotApplication.html" title="class in de.sukit.chatbot">ChatBotApplication</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html#concatenatedResponses">concatenatedResponses</a></span> - Variable in class de.sukit.chatbot.rest.handlers.<a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html" title="class in de.sukit.chatbot.rest.handlers">ResponseHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/Main.html#createFile-java.io.File-java.io.File-">createFile(File, File)</a></span> - Static method in class de.sukit.chatbot.<a href="de/sukit/chatbot/Main.html" title="class in de.sukit.chatbot">Main</a></dt>
 <dd>
@@ -114,6 +116,16 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html#DICTIONARYHANDLER">DICTIONARYHANDLER</a></span> - Variable in class de.sukit.chatbot.rest.handlers.<a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html" title="class in de.sukit.chatbot.rest.handlers">ResponseHandler</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><span class="typeNameLink">DictionaryModel</span></a> - Class in <a href="de/sukit/chatbot/package-summary.html">de.sukit.chatbot</a></dt>
+<dd>
+<div class="block">Represents an entry in the dictionary list.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#DictionaryModel-int-java.lang.String-java.lang.String-">DictionaryModel(int, String, String)</a></span> - Constructor for class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Constructor.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#dictionaryModelList">dictionaryModelList</a></span> - Variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#DIRECTORY_WATCH">DIRECTORY_WATCH</a></span> - Variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/FileWatcher.html#DIRECTORY_WATCH">DIRECTORY_WATCH</a></span> - Variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/FileWatcher.html" title="class in de.sukit.chatbot">FileWatcher</a></dt>
@@ -149,9 +161,20 @@
 <dd>
 <div class="block">Alternative to <a href="de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-"><code>getResponse(String)</code></a>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/controllers/ResponseController.html#getConcatenatedResponses-java.lang.String-">getConcatenatedResponses(String)</a></span> - Method in class de.sukit.chatbot.rest.controllers.<a href="de/sukit/chatbot/rest/controllers/ResponseController.html" title="class in de.sukit.chatbot.rest.controllers">ResponseController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html#getConcatenatedResponses-java.lang.String-">getConcatenatedResponses(String)</a></span> - Method in class de.sukit.chatbot.rest.handlers.<a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html" title="class in de.sukit.chatbot.rest.handlers">ResponseHandler</a></dt>
+<dd>
+<div class="block">Get all possible reponses from user input and concatenated them into a single String, in order of priority set in
+ the dictionary.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#getDictionary--">getDictionary()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
 <dd>
 <div class="block">Getter for the dictionary used for keyword-recognition.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#getDictionaryList--">getDictionaryList()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
+<dd>
+<div class="block">Getter for the <a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><code>DictionaryModel</code></a> list.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#getDIRECTORY_WATCH--">getDIRECTORY_WATCH()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
 <dd>
@@ -174,18 +197,38 @@
 <div class="block">Helper method.<br>
  Reads the passed manifest-file into a byte array and returns a JsonNode containing said byte array.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#getKeyword--">getKeyword()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Getter for the keyword of the keyword/response-pair.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#getObjectMapper--">getObjectMapper()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
 <dd>
 <div class="block">Getter for the object-mapper used for working with JSON-data.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#getPriority--">getPriority()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Getter for the priority of the keyword/response-pair.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html#getReponse-java.lang.String-">getReponse(String)</a></span> - Method in class de.sukit.chatbot.rest.handlers.<a href="de/sukit/chatbot/rest/handlers/ResponseHandler.html" title="class in de.sukit.chatbot.rest.handlers">ResponseHandler</a></dt>
 <dd>
 <div class="block">Get a response based on the input recieved from the user-input in the frontend.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#getResponse--">getResponse()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Getter for the response of the keyword/response-pair.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/controllers/ResponseController.html#getResponse-java.lang.String-">getResponse(String)</a></span> - Method in class de.sukit.chatbot.rest.controllers.<a href="de/sukit/chatbot/rest/controllers/ResponseController.html" title="class in de.sukit.chatbot.rest.controllers">ResponseController</a></dt>
 <dd>
-<div class="block">Getter the response from the dictionary based on the user-input recieved from the frontend.</div>
+<div class="block">Getter the response from the dictionary based on the user-input received from the frontend.</div>
 </dd>
+</dl>
+<a name="I:K">
+<!--   -->
+</a>
+<h2 class="title">K</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#keyword">keyword</a></span> - Variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:L">
 <!--   -->
@@ -223,14 +266,24 @@
 <div class="block">Setup default-files.</div>
 </dd>
 </dl>
+<a name="I:P">
+<!--   -->
+</a>
+<h2 class="title">P</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#priority">priority</a></span> - Variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>&nbsp;</dd>
+</dl>
 <a name="I:R">
 <!--   -->
 </a>
 <h2 class="title">R</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#response">response</a></span> - Variable in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="de/sukit/chatbot/rest/controllers/ResponseController.html" title="class in de.sukit.chatbot.rest.controllers"><span class="typeNameLink">ResponseController</span></a> - Class in <a href="de/sukit/chatbot/rest/controllers/package-summary.html">de.sukit.chatbot.rest.controllers</a></dt>
 <dd>
-<div class="block">RestController for responses from the dictionary based on the user-input recieved from the frontend.</div>
+<div class="block">RestController for responses from the dictionary based on the user-input received from the frontend.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="de/sukit/chatbot/rest/controllers/ResponseController.html#ResponseController-de.sukit.chatbot.rest.handlers.ResponseHandler-de.sukit.chatbot.DictionaryHandler-de.sukit.chatbot.FileWatcher-">ResponseController(ResponseHandler, DictionaryHandler, FileWatcher)</a></span> - Constructor for class de.sukit.chatbot.rest.controllers.<a href="de/sukit/chatbot/rest/controllers/ResponseController.html" title="class in de.sukit.chatbot.rest.controllers">ResponseController</a></dt>
 <dd>
@@ -257,6 +310,22 @@
 <dd>
 <div class="block">Sets the dictionary-hashmap for this class by reading the <code>data/dictionary.json</code>-file into a JsonNode.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryHandler.html#setDictionaryList--">setDictionaryList()</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryHandler.html" title="class in de.sukit.chatbot">DictionaryHandler</a></dt>
+<dd>
+<div class="block">Creates a list of <a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot"><code>DictionaryModel</code></a> with priority, keyword and response for each object in the dictionary.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#setKeyword-java.lang.String-">setKeyword(String)</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Setter for the keyword of the keyword/response-pair.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#setPriority-int-">setPriority(int)</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Setter for the priority of the keyword/response-pair.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="de/sukit/chatbot/DictionaryModel.html#setResponse-java.lang.String-">setResponse(String)</a></span> - Method in class de.sukit.chatbot.<a href="de/sukit/chatbot/DictionaryModel.html" title="class in de.sukit.chatbot">DictionaryModel</a></dt>
+<dd>
+<div class="block">Setter for the response of the keyword/response-pair.</div>
+</dd>
 </dl>
 <a name="I:T">
 <!--   -->
@@ -279,7 +348,7 @@
  dictionary-hashmap.</div>
 </dd>
 </dl>
-<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;</div>
+<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->
