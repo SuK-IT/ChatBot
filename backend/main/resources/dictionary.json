@@ -3,12 +3,12 @@
   "keywords": [
     {
       "keyword": "hallo",
-      "response": "Hallo, ich bin der Sprach-und Kommunkationsbot. Wie kann ich helfen?",
+      "response": "Hallo, ich bin der Sprach-und Kommunikationsbot. Wie kann ich helfen?",
       "priority": 1
     },
     {
       "keyword": "hi",
-      "response": "Hallo, ich bin der Sprach-und Kommunkationsbot. Wie kann ich helfen?",
+      "response": "Hallo, ich bin der Sprach-und Kommunikationsbot. Wie kann ich helfen?",
       "priority": 1
     },
     {
