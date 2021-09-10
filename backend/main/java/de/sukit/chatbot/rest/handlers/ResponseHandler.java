@@ -64,14 +64,14 @@ public class ResponseHandler {
                 return DICTIONARYHANDLER.getDictionary().get(keyword);
             }
         }
-        return DICTIONARYHANDLER.getNomatch();
+        return DICTIONARYHANDLER.getNoMatch();
     }
 
     /**
-     * Get all possible reponses from user input and concatenated them into a single String, in order of priority set in
+     * Get all possible responses from user input and concatenated them into a single String, in order of priority set in
      * the dictionary.
      * @author Griefed
-     * @param input String. The input recieved from the user-input in the frontend.
+     * @param input String. The input received from the user-input in the frontend.
      * @return String. Returns the response matching the input to the dictionary. If no match is found <code>No match found!</code>
      * is returned.
      */
@@ -105,7 +105,7 @@ public class ResponseHandler {
         if (!concatenatedResponses.equals("")) {
             return concatenatedResponses;
         } else {
-            return DICTIONARYHANDLER.getNomatch();
+            return DICTIONARYHANDLER.getNoMatch();
         }
     }
 }

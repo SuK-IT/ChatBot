@@ -53,7 +53,7 @@ public class DictionaryHandler {
      * @author Griefed
      * @return String. Returns the string which gets returned if no match is found for a given user-input.
      */
-    public String getNomatch() {
+    public String getNoMatch() {
         return nomatch;
     }
 
@@ -62,7 +62,7 @@ public class DictionaryHandler {
      * @author Griefed
      * @param nomatch String. The string which gets returned if no match is found for a given user-input.
      */
-    public void setNomatch(String nomatch) {
+    public void setNoMatch(String nomatch) {
         this.nomatch = nomatch;
     }
 
@@ -134,7 +134,7 @@ public class DictionaryHandler {
 
             JsonNode dictionaryJson = getJson(getFILE_DICTIONARY());
 
-            this.nomatch = dictionaryJson.get("nomatch").asText();
+            setNoMatch(dictionaryJson.get("nomatch").asText());
 
             JsonNode keywords = dictionaryJson.get("keywords");
 
@@ -161,7 +161,7 @@ public class DictionaryHandler {
 
             JsonNode dictionaryJson = getJson(getFILE_DICTIONARY());
 
-            this.nomatch = dictionaryJson.get("nomatch").asText();
+            setNoMatch(dictionaryJson.get("nomatch").asText());
 
             JsonNode keywords = dictionaryJson.get("keywords");
 
