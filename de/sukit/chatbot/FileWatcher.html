@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -182,24 +182,30 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>private void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#createDictionary--">createDictionary</a></span>()</code>
+<div class="block">Create the default dictionary.json in case the one we are using is deleted.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#createListener--">createListener</a></span>()</code>
 <div class="block">Setup our FileAlterationObserver.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#getDIRECTORY_WATCH--">getDIRECTORY_WATCH</a></span>()</code>
 <div class="block">Getter for the directory which the FileWatcher is supposed to monitor.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#getFILE_DICTIONARY--">getFILE_DICTIONARY</a></span>()</code>
 <div class="block">Getter for the dictionary-file.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../de/sukit/chatbot/FileWatcher.html#updateDictionary--">updateDictionary</a></span>()</code>
 <div class="block">Calls <a href="../../../de/sukit/chatbot/DictionaryHandler.html#setDictionary--"><code>DictionaryHandler.setDictionary()</code></a> in order to re-read the dictionary.json and therefore update our
@@ -331,6 +337,16 @@ public&nbsp;FileWatcher(<a href="../../../de/sukit/chatbot/DictionaryHandler.htm
 <h4>createListener</h4>
 <pre>public&nbsp;void&nbsp;createListener()</pre>
 <div class="block">Setup our FileAlterationObserver.</div>
+</li>
+</ul>
+<a name="createDictionary--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createDictionary</h4>
+<pre>private&nbsp;void&nbsp;createDictionary()</pre>
+<div class="block">Create the default dictionary.json in case the one we are using is deleted.</div>
 </li>
 </ul>
 <a name="updateDictionary--">
