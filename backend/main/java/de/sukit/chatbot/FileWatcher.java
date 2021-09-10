@@ -26,6 +26,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * The FileWatcher class creates a FileWatcher which solely monitors the <code>data</code>-directory in which our
@@ -117,7 +121,9 @@ public class FileWatcher {
 
             @Override
             public void onFileDelete(File file) {
-
+                LOG.info("Dictionary deleted!");
+                createDictionary();
+                updateDictionary();
             }
 
             @Override
@@ -138,17 +144,35 @@ public class FileWatcher {
     }
 
     /**
+     * Create the default dictionary.json in case the one we are using is deleted.
+     * @author Griefed
+     */
+    private void createDictionary() {
+        try {
+            InputStream link = (ChatBotApplication.class.getResourceAsStream(String.format("/dictionary.json")));
+            if (link != null) {
+                Files.copy(link, Paths.get("data/dictionary.json"));
+                link.close();
+            }
+        } catch (IOException ex) {
+            LOG.error("Error creating file: data/dictionary.json", ex);
+        }
+    }
+
+    /**
      * Calls {@link DictionaryHandler#setDictionary()} in order to re-read the dictionary.json and therefore update our
      * dictionary-hashmap.
      * @author Griefed
      */
     protected void updateDictionary() {
-        DICTIONARYHANDLER.setDictionary();
+        if (new File("data/dictionary.json").exists()) {
+            DICTIONARYHANDLER.setDictionary();
 
-        DICTIONARYHANDLER.getDictionary().entrySet().stream().
-                forEach(
-                        input ->
-                                LOG.info(input.getKey() + " : " + input.getValue()));
+            DICTIONARYHANDLER.getDictionary().entrySet().stream().
+                    forEach(
+                            input ->
+                                    LOG.info(input.getKey() + " : " + input.getValue()));
+        }
     }
 
 }
