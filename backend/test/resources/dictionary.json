@@ -1,44 +1,55 @@
 {
+  "nomatch": "none",
   "keywords": [
       {
         "keyword": "wort0",
-        "response": "1 - Hallo Welt!"
+        "response": "1 - Hallo Welt!",
+        "priority": 1
       },
       {
         "keyword": "wort1",
-        "response": "2 - Hallo Welt!"
+        "response": "2 - Hallo Welt!",
+        "priority": 2
       },
       {
         "keyword": "wort2",
-        "response": "3 - Hallo Welt!"
+        "response": "3 - Hallo Welt!",
+        "priority": 3
       },
       {
         "keyword": "wort3",
-        "response": "4 - Hallo Welt!"
+        "response": "4 - Hallo Welt!",
+        "priority": 1
       },
       {
         "keyword": "wort4",
-        "response": "5 - Hallo Welt!"
+        "response": "5 - Hallo Welt!",
+        "priority": 2
       },
       {
         "keyword": "wort5",
-        "response": "6 - Hallo Welt!"
+        "response": "6 - Hallo Welt!",
+        "priority": 3
       },
       {
         "keyword": "wort6",
-        "response": "7 - Hallo Welt!"
+        "response": "7 - Hallo Welt!",
+        "priority": 1
       },
       {
         "keyword": "wort7",
-        "response": "8 - Hallo Welt!"
+        "response": "8 - Hallo Welt!",
+        "priority": 2
       },
       {
         "keyword": "wort8",
-        "response": "9 - Hallo Welt!"
+        "response": "9 - Hallo Welt!",
+        "priority": 3
       },
       {
         "keyword": "wort9",
-        "response": "10 - Hallo Welt!"
+        "response": "10 - Hallo Welt!",
+        "priority": 1
       }
   ]
 }

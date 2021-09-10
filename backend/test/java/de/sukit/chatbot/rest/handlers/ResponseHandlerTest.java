@@ -69,7 +69,7 @@ public class ResponseHandlerTest {
         Assertions.assertEquals("8 - Hallo Welt!", RESPONSEHANDLER.getReponse("wort7"));
         Assertions.assertEquals("9 - Hallo Welt!", RESPONSEHANDLER.getReponse("wort8"));
         Assertions.assertEquals("10 - Hallo Welt!", RESPONSEHANDLER.getReponse("wort9"));
-        Assertions.assertEquals("No match found!", RESPONSEHANDLER.getReponse("890uta4m3cgva3zn849"));
+        Assertions.assertEquals("none", RESPONSEHANDLER.getReponse("890uta4m3cgva3zn849"));
     }
 
 }
