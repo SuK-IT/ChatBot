@@ -5,46 +5,46 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "Griefed"
-    labels:
-      - "dependencies"
-      - "github-actions"
-    target-branch: "master"
-    
-  - package-ecosystem: "gradle"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "Griefed"
-    labels:
-      - "dependencies"
-      - "gradle"
-    target-branch: "master"
-    
-  - package-ecosystem: "npm"
-    directory: "/frontend"
-    schedule:
-      interval: "weekly"  
-    assignees:
-      - "Griefed"
-    labels:
-      - "dependencies"
-      - "npm"
-    target-branch: "master"
-    
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "Griefed"
-    labels:
-      - "dependencies"
-      - "docker"
-    target-branch: "master"
+#  - package-ecosystem: "github-actions"
+#    directory: "/"
+#    schedule:
+#      interval: "weekly"
+#    assignees:
+#      - "Griefed"
+#    labels:
+#     - "dependencies"
+#     - "github-actions"
+#    target-branch: "master"
+#    
+#  - package-ecosystem: "gradle"
+#    directory: "/"
+#    schedule:
+#      interval: "weekly"
+#    assignees:
+#      - "Griefed"
+#    labels:
+#      - "dependencies"
+#      - "gradle"
+#    target-branch: "master"
+#    
+#  - package-ecosystem: "npm"
+#    directory: "/frontend"
+#    schedule:
+#      interval: "weekly"  
+#    assignees:
+#      - "Griefed"
+#    labels:
+#      - "dependencies"
+#      - "npm"
+#    target-branch: "master"
+#    
+#  - package-ecosystem: "docker"
+#    directory: "/"
+#    schedule:
+#      interval: "weekly"
+#    assignees:
+#      - "Griefed"
+#    labels:
+#      - "dependencies"
+#      - "docker"
+#    target-branch: "master"
