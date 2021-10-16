@@ -14,18 +14,18 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.11.2",
-    "axios": "^0.22.0",
-    "core-js": "^3.18.1",
-    "quasar": "^2.1.0",
+    "axios": "^0.23.0",
+    "core-js": "^3.18.3",
+    "quasar": "^2.1.5",
     "vue-class-component": "^8.0.0-rc.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.15.7",
-    "@quasar/app": "^3.1.2",
-    "@types/node": "^16.10.2",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.32.0",
-    "eslint": "^7.32.0",
+    "@babel/eslint-parser": "^7.15.8",
+    "@quasar/app": "^3.1.4",
+    "@types/node": "^16.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-vue": "^7.19.1"
   },
