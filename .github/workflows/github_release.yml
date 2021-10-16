@@ -37,7 +37,7 @@ jobs:
           release_name: Release ${{ steps.tag.outputs.tag }}
           body: |
             Automatic release of version: **${{ steps.tag.outputs.tag }}**
-            **Changes in this pre-release:**
+            **Changes in this release:**
             ${{ steps.conventional_changelog.outputs.changelog }}
           draft: false
           prerelease: false
