@@ -52,7 +52,7 @@ configurations {
 
 dependencies {
     embed 'commons-io:commons-io:2.11.0'
-    embed 'org.springframework.boot:spring-boot-starter-validation:2.5.5'
+    embed 'org.springframework.boot:spring-boot-starter-validation:2.5.6'
     embed 'org.springframework.boot:spring-boot-starter-web:2.5.5'
     embed 'org.springframework.boot:spring-boot-starter-log4j2:2.5.5'
     embed 'org.apache.logging.log4j:log4j-web:2.14.1'
