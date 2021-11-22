@@ -1,4 +1,4 @@
-FROM griefed/baseimage-ubuntu-jdk-8:1.0.5 AS builder
+FROM griefed/baseimage-ubuntu-jdk-8:2.0.0 AS builder
 #    nodejs \
 #    npm && \
 RUN \
@@ -14,7 +14,7 @@ RUN \
   ./gradlew about installQuasar cleanFrontend assembleFrontend copyDist build --info -x test && \
   ls -ahl ./build/libs/
 
-FROM griefed/baseimage-ubuntu-jdk-8:1.0.5
+FROM griefed/baseimage-ubuntu-jdk-8:2.0.0
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Chatbot in Java as backend and Quasar as frontend."
