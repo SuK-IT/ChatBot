@@ -1,14 +1,14 @@
 //file:noinspection GroovyAssignabilityCheck
 import java.text.SimpleDateFormat
-import org.siouan.frontendgradleplugin.infrastructure.gradle.RunNpmYarn
+import org.siouan.frontendgradleplugin.infrastructure.gradle.RunNpm
 
 plugins {
     id 'java'
     id 'idea'
 
-    id "org.siouan.frontend-jdk8" version "5.3.0"
+    id 'org.siouan.frontend-jdk8' version '6.0.0'
 
-    id 'org.springframework.boot' version '2.6.0'
+    id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
@@ -52,16 +52,19 @@ configurations {
 
 dependencies {
     embed 'commons-io:commons-io:2.11.0'
-    dependabot/gradle/master/org.springframework.boot-spring-boot-starter-web-2.6.0
-    embed 'org.springframework.boot:spring-boot-starter-web:2.6.0'
-    embed 'org.springframework.boot:spring-boot-starter-validation:2.6.0'
-    embed 'org.springframework.boot:spring-boot-starter-log4j2:2.5.5'
-    embed 'org.apache.logging.log4j:log4j-web:2.14.1'
+    embed 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+    embed 'org.springframework.boot:spring-boot-starter-validation:2.6.1'
+    embed 'org.springframework.boot:spring-boot-starter-log4j2:2.6.1'
+    embed 'org.apache.logging.log4j:log4j-web:2.15.0'
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.5'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    // Dev tools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.6.1'
+
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.1'
+    testImplementation 'org.junit.platform:junit-platform-commons:1.8.2'
 }
 
 test {
@@ -75,30 +78,6 @@ test {
     }
 }
 
-frontend {
-    packageJsonDirectory = file("${projectDir}/frontend")
-
-    nodeVersion = '16.1.0'
-    nodeInstallDirectory = file("${projectDir}/frontend/node")
-
-    yarnEnabled = false
-    yarnVersion = "1.22.10"
-    yarnInstallDirectory = file("${projectDir}/frontend/yarn")
-
-    cleanScript = 'run clean'
-    assembleScript = 'run build'
-
-    // Print the architecture we are running on.
-    System.out.println(String.format("I am running on: %s", System.getProperty("os.arch")))
-
-    // If we are running on arm, specify Node path pattern so arm-builds succeed.
-    if (System.getProperty("os.arch").equals("arm")) {
-        nodeDistributionUrlPathPattern = 'vVERSION/node-vVERSION-linux-armv7l.TYPE'
-    } else if (System.getProperty("os.arch").equals("aarch64")) {
-        nodeDistributionUrlPathPattern = 'vVERSION/node-vVERSION-linux-arm64.TYPE'
-    }
-}
-
 // Configure frontend plugin. See documentation at https://siouan.github.io/frontend-gradle-plugin/.
 frontend {
     packageJsonDirectory = file("${projectDir}/frontend")
@@ -107,8 +86,8 @@ frontend {
     nodeInstallDirectory = file("${projectDir}/frontend/node")
 
     yarnEnabled = false
-    yarnVersion = "1.22.11"
-    yarnInstallDirectory = file("${projectDir}/frontend/yarn")
+    //yarnVersion = "1.22.11"
+    //yarnInstallDirectory = file("${projectDir}/frontend/yarn")
 
     cleanScript = 'run clean'
     assembleScript = 'run build'
@@ -133,7 +112,7 @@ tasks.register('about', Copy) {
 }
 
 
-tasks.register('installQuasar', RunNpmYarn) {
+tasks.register('installQuasar', RunNpm) {
     dependsOn tasks.named('installNode')
     script = 'install -g @quasar/cli'
 }
