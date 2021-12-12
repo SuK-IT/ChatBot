@@ -2,8 +2,8 @@ name: Create Dev-Build
 
 on:
   push:
-    branches:
-      - develop
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -29,5 +29,5 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
           tags: |
-            ghcr.io/suk-it/chatbot:develop
-            ghcr.io/suk-it/chatbot:develop-${{ github.sha }}
+            ghcr.io/suk-it/chatbot:${{ github.ref_name }}
+            ghcr.io/suk-it/chatbot:${{ github.ref_name }}-${{ github.sha }}
