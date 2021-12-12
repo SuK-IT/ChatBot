@@ -26,7 +26,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile.develop
-          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/suk-it/chatbot:${{ github.ref_name }}
