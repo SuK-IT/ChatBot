@@ -2,16 +2,7 @@ name: Test
 
 on:
   push:
-    branches:
-      - main
-      - master
-      - DHE
-      - KKO
-      - NF
   pull_request:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 jobs:
