@@ -19,6 +19,8 @@ FROM griefed/baseimage-ubuntu-jdk-8:2.0.0
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Chatbot in Java as backend and Quasar as frontend."
 
+ENV LOG4J_FORMAT_MSG_NO_LOOKUPS=true
+
 RUN \
   echo "**** Bring system up to date ****" && \
   apt-get update && apt-get upgrade -y && \
