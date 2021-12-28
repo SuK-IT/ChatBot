@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  gradle:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,11 +24,15 @@ jobs:
       - name: List files in libs
         run: ls -ahl build/libs
 
+
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5
-
-      # DOCKER RELATED
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
