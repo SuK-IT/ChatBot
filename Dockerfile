@@ -1,12 +1,13 @@
 FROM griefed/baseimage-ubuntu-jdk-8:2.0.0 AS builder
-#    nodejs \
-#    npm && \
+
+ARG BRANCH_OR_TAG=master
+
 RUN \
   apt-get update && apt-get upgrade -y && \
   apt-get install -y \
     libatomic1 && \
   git clone \
-    -b master \
+    -b $BRANCH_OR_TAG \
       https://github.com/SuK-IT/ChatBot.git \
         /tmp/chatbot && \
   chmod +x /tmp/chatbot/gradlew* && \
