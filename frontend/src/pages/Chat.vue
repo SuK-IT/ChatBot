@@ -169,7 +169,7 @@ export class MessageHelper
 }
 
 export default {
-
+  name: 'PageChat',
   setup () {
     //Speichert eine Instanz des Quasar Framework in der Variabe @$q
     const $q = useQuasar()
