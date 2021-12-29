@@ -58,6 +58,7 @@
 import { ref } from 'vue'
 
 export default {
+  name: 'PageIndex',
   setup () {
     return {
       slide: ref(1),
