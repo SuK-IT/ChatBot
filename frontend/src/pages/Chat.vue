@@ -137,7 +137,7 @@ export class MessageHelper
     let escaped = this.escapeInput(text, true);
     //Verwendet axios für einen GET request an unser backend und erstellt eine neue Chatmessage anhand des Rückgabewerts.
     //Falls das backend nicht erreichbar ist, wird eine Fehlermeldung ausgegeben.
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     void axios.get(REQUEST_URL + escaped).then(response => { this.AddMessage(response.data, false); })
     .catch(function (error) { alert(error); });
   }
