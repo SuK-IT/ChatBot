@@ -16,7 +16,7 @@
     "@quasar/extras": "^1.12.2",
     "axios": "^0.24.0",
     "core-js": "^3.20.2",
-    "quasar": "^2.3.4",
+    "quasar": "^2.4.4",
     "vue-class-component": "^8.0.0-rc.1"
   },
   "devDependencies": {
